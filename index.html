@@ -1,1 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Redstone | Premier Veg &amp; Non-Veg Family Restaurant Nashik</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: #0d0d10;
+    color: #FFFFFF;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    padding-bottom: 75px;
+  }
+  a { text-decoration: none; color: inherit; }
+  
+  /* Top Banner */
+  .alert-bar {
+    background: #E52D3F;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* Navigation */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(13, 13, 16, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #222228;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #E52D3F; }
+  .brand-text h1 { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; }
+  .brand-text span { font-size: 10px; color: #8E8E93; text-transform: uppercase; letter-spacing: 0.5px; display: block; }
+
+  /* Hero */
+  .hero {
+    padding: 40px 16px 30px;
+    text-align: center;
+    background: radial-gradient(circle at top, rgba(229,45,63,0.18) 0%, rgba(13,13,16,0) 80%);
+    border-bottom: 1px solid #1c1c22;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(251,191,36,0.1);
+    border: 1px solid rgba(251,191,36,0.25);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #FBBF24;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .hero h2 { font-size: 30px; font-weight: 900; line-height: 1.15; margin-bottom: 12px; }
+  .hero p { font-size: 14px; color: #BBB; margin-bottom: 22px; max-width: 480px; margin-inline: auto; }
+
+  /* Action Buttons */
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #E52D3F;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 20px;
+    border-radius: 30px;
+    width: 100%;
+    margin-bottom: 9px;
+  }
+  .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #1c1c23;
+    border: 1px solid #2e2e38;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px 20px;
+    border-radius: 30px;
+    width: 100%;
+  }
+
+  /* Stats Counter */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #141419;
+    border-bottom: 1px solid #222228;
+    text-align: center;
+    padding: 14px 8px;
+  }
+  .stat-item h4 { font-size: 19px; font-weight: 800; color: #FBBF24; }
+  .stat-item p { font-size: 10px; color: #888; text-transform: uppercase; margin-top: 2px; }
+
+  /* Sections */
+  .section { padding: 34px 16px; border-bottom: 1px solid #1c1c22; }
+  .section-title { font-size: 21px; font-weight: 800; margin-bottom: 5px; }
+  .section-desc { font-size: 13px; color: #8E8E93; margin-bottom: 22px; }
+
+  /* Menu Tabs */
+  .tab-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+    scrollbar-width: none;
+  }
+  .tab-row::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    white-space: nowrap;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #1a1a21;
+    border: 1px solid #2d2d38;
+    color: #AAA;
+    cursor: pointer;
+  }
+  .tab-btn.active {
+    background: #E52D3F;
+    border-color: #E52D3F;
+    color: #fff;
+  }
+
+  /* Grid & Cards */
+  .menu-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .card {
+    background: #15151a;
+    border: 1px solid #24242d;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .card-body { padding: 14px; }
+  .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .card-title { font-size: 16px; font-weight: 700; }
+  .card-price { color: #FBBF24; font-weight: 800; font-size: 14px; }
+  .card-text { font-size: 12px; color: #9A9AA0; }
+
+  /* Features Grid */
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .feature-box {
+    background: #141419;
+    border: 1px solid #23232c;
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .feature-box i { font-size: 20px; color: #E52D3F; margin-bottom: 8px; display: inline-block; }
+  .feature-box h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .feature-box p { font-size: 11px; color: #7F7F86; line-height: 1.4; }
+
+  /* Catering Banner */
+  .catering-card {
+    background: linear-gradient(135deg, #201416 0%, #15151b 100%);
+    border: 1px solid rgba(229,45,63,0.3);
+    border-radius: 16px;
+    padding: 20px 16px;
+  }
+  .catering-card h3 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .catering-card p { font-size: 12px; color: #AAA; margin-bottom: 16px; line-height: 1.5; }
+
+  /* Accordion FAQ */
+  .faq-item {
+    background: #15151a;
+    border: 1px solid #22222a;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .faq-question {
+    padding: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .faq-answer {
+    padding: 0 14px 14px 14px;
+    font-size: 12px;
+    color: #999;
+    line-height: 1.45;
+  }
+
+  /* Form */
+  .form-group { margin-bottom: 12px; }
+  .form-group label { display: block; font-size: 11px; color: #8E8E93; margin-bottom: 5px; text-transform: uppercase; font-weight: 600; }
+  .form-control {
+    width: 100%;
+    background: #15151a;
+    border: 1px solid #2a2a34;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 13px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* Floating Bottom Bar */
+  .floating-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(13, 13, 16, 0.98);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid #262630;
+    padding: 10px 14px;
+    display: flex;
+    gap: 10px;
+    z-index: 99;
+  }
+  .floating-bar a {
+    flex: 1;
+    text-align: center;
+    padding: 11px 0;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .f-call { background: #1f1f26; border: 1px solid #33333f; color: white; }
+  .f-wa { background: #E52D3F; color: white; }
+</style>
+</head>
+<body>
+
+<div class="alert-bar">
+  🔥 Special weekend dining offers &amp; family party packages now open
+</div>
+
+<header>
+  <div class="brand">
+    <img src="https://i.ibb.co/0jxFscyZ/393225417-1692051837973652-4376235204209336957-n.jpg" alt="Redstone">
+    <div class="brand-text">
+      <h1>Hotel Redstone</h1>
+      <span>Food Corner • Nashik</span>
+    </div>
+  </div>
+  <a href="https://wa.me/919049590042?text=Hi%20Redstone,%20I%20want%20to%20reserve%20a%20table" style="background:#E52D3F; padding:7px 14px; border-radius:20px; font-size:12px; font-weight:700;">
+    <i class="fa-brands fa-whatsapp"></i> Book
+  </a>
+</header>
+
+<div class="hero">
+  <div class="badge"><i class="fa-solid fa-crown"></i> Premier Family Dining Experience</div>
+  <h2>Authentic Veg &amp; Non-Veg Flavours</h2>
+  <p>Nashik's top family destination for slow-cooked Dum Biryani, clay-oven Tandoori treats, street-style Pav Bhaji, and fresh South Indian breakfasts.</p>
+  
+  <a href="https://wa.me/919049590042?text=Hi%20Redstone,%20I%20want%20to%20reserve%20a%20table" class="btn-primary">
+    <i class="fa-brands fa-whatsapp"></i> Reserve a Table Instantly
+  </a>
+  <a href="https://link.zomato.com/xqzv/rshare?id=5595790146fb965b" target="_blank" class="btn-secondary">
+    <i class="fa-solid fa-bag-shopping"></i> Order Online on Zomato
+  </a>
+</div>
+
+<!-- Stats Counter -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <h4>4.5 ★</h4>
+    <p>Google Rating</p>
+  </div>
+  <div class="stat-item">
+    <h4>500+</h4>
+    <p>Daily Diners</p>
+  </div>
+  <div class="stat-item">
+    <h4>60+</h4>
+    <p>Fresh Dishes</p>
+  </div>
+</div>
+
+<!-- Why Choose Us Grid -->
+<div class="section">
+  <h3 class="section-title">The Redstone Standard</h3>
+  <p class="section-desc">Why hundreds of Nashik families dine with us every week.</p>
+
+  <div class="features-grid">
+    <div class="feature-box">
+      <i class="fa-solid fa-kitchen-set"></i>
+      <h4>Separate Kitchens</h4>
+      <p>100% strict segregation for pure vegetarian food preparation.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fa-solid fa-drumstick-bite"></i>
+      <h4>Clay Oven Tandoor</h4>
+      <p>Freshly marinated meats and paneer charred over natural coal.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fa-solid fa-users"></i>
+      <h4>Family Hall</h4>
+      <p>Spacious air-cooled dining area tailored for celebrations.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fa-solid fa-motorcycle"></i>
+      <h4>Fast Delivery</h4>
+      <p>Piping-hot packaging to preserve original crispness and aromas.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Menu Section with Dynamic Category Filter -->
+<div class="section">
+  <h3 class="section-title">Chef's Signature Menu</h3>
+  <p class="section-desc">Handcrafted items prepared with original spice blends.</p>
+
+  <div class="tab-row">
+    <button class="tab-btn active" onclick="filterMenu('all')">All Specials</button>
+    <button class="tab-btn" onclick="filterMenu('tandoor')">Biryani &amp; Tandoor</button>
+    <button class="tab-btn" onclick="filterMenu('veg')">Pure Veg</button>
+    <button class="tab-btn" onclick="filterMenu('snack')">Snacks &amp; Shakes</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+    <div class="card item-tandoor">
+      <img src="https://i.ibb.co/Wv2hF1qH/pexels-kunal-lakhotia-781256899-29173114.jpg" alt="Chicken Tikka">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-title">Chicken Tikka Kebab</span>
+          <span class="card-price">₹280</span>
+        </div>
+        <p class="card-text">Char-grilled bone-free chicken steeped overnight in hung curd and red chilies.</p>
+      </div>
+    </div>
+
+    <div class="card item-tandoor">
+      <img src="https://i.ibb.co/Dgt1gJVp/photo-1589302168068-964664d93dc0.jpg" alt="Dum Biryani">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-title">Special Chicken Dum Biryani</span>
+          <span class="card-price">₹260</span>
+        </div>
+        <p class="card-text">Long-grain royal basmati sealed with aromatics and succulent chicken cuts.</p>
+      </div>
+    </div>
+
+    <div class="card item-tandoor">
+      <img src="https://i.ibb.co/ynLCxNHZ/photo-1565299624946-b28f40a0ae38.jpg" alt="Chicken Pizza">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-title">Chicken Tandoor Pizza</span>
+          <span class="card-price">₹240</span>
+        </div>
+        <p class="card-text">Crispy stone crust crowned with roasted chicken, bell peppers, and mozzarella.</p>
+      </div>
+    </div>
+
+    <div class="card item-veg">
+      <img src="https://i.ibb.co/qYwCp8jt/mouthwatering-pav-bhaji-served-buttery-pav-buns-garnished-with-chopped-onions-and-lime-wedges-photo.jpg" alt="Butter Pav Bhaji">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-title">Butter Pav Bhaji</span>
+          <span class="card-price">₹160</span>
+        </div>
+        <p class="card-text">Mashed farm vegetables braised in house masala, served with toasted Amul pavs.</p>
+      </div>
+    </div>
+
+    <div class="card item-veg">
+      <img src="https://i.ibb.co/B5K8RFy2/Paneer-butter-masala-recipe-3.jpg" alt="Paneer Butter Masala">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-title">Paneer Butter Masala</span>
+          <span class="card-price">₹230</span>
+        </div>
+        <p class="card-text">Creamy, velvety tomato curry prepared with soft fresh cottage cheese.</p>
+      </div>
+    </div>
+
+    <div class="card item-snack">
+      <img src="https://i.ibb.co/Nv5hC2N/veg-cheese-grilled-sandwich-served-ketchup-isolated-over-rustic-wooden-background-selective-focus-22.jpg" alt="Cheesy Sandwich">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-title">Cheesy Grilled Sandwich</span>
+          <span class="card-price">₹140</span>
+        </div>
+        <p class="card-text">Triple-layer toasted sandwich stuffed with crisp vegetables and melted cheese.</p>
+      </div>
+    </div>
+
+    <div class="card item-snack">
+      <img src="https://i.ibb.co/1JhbW2n5/indian-1768906-640.jpg" alt="Masala Dosa">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-title">Crispy Masala Dosa</span>
+          <span class="card-price">₹110</span>
+        </div>
+        <p class="card-text">Crisp butter crepe filled with seasoned potato, served with coconut chutney &amp; sambar.</p>
+      </div>
+    </div>
+
+    <div class="card item-snack">
+      <img src="https://i.ibb.co/DgVQg5dh/chocolate-milk-and-whipped-cream.jpg" alt="Chocolate Milkshake">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="card-title">Cold Chocolate Shake</span>
+          <span class="card-price">₹120</span>
+        </div>
+        <p class="card-text">Chilled thick chocolate blend topped with rich whipped cream.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Catering & Party Orders -->
+<div class="section">
+  <div class="catering-card">
+    <span style="color:#FBBF24; font-size:11px; font-weight:800; text-transform:uppercase;">Parties &amp; Gatherings</span>
+    <h3 style="margin-top:4px;">Host Your Next Celebration at Redstone</h3>
+    <p>Planning a birthday, anniversary, or corporate family dinner? We offer custom buffet menus, private dining reservations, and bulk parcel discounts.</p>
+    <a href="https://wa.me/919049590042?text=Hi%20Hotel%20Redstone,%20I%20want%20to%20enquire%20about%20party%20catering%20or%20bulk%20booking" class="btn-primary" style="margin-bottom:0; background:#E52D3F;">
+      <i class="fa-solid fa-cake-candles"></i> Enquire for Party Packages
+    </a>
+  </div>
+</div>
+
+<!-- Table Booking Form -->
+<div class="section">
+  <h3 class="section-title">Table Reservation</h3>
+  <p class="section-desc">Skip weekend queues by reserving your seats online.</p>
+
+  <form id="resForm">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" id="gname" required placeholder="e.g. Rahul Sharma" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" id="gphone" required placeholder="10-digit mobile number" pattern="[0-9]{10}" class="form-control">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Reservation Date</label>
+        <input type="date" id="gdate" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Number of Guests</label>
+        <input type="number" id="gguests" min="1" max="40" value="4" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Seating Preference</label>
+      <select id="gpref" class="form-control">
+        <option value="Family Dining Area">Family Dining Hall</option>
+        <option value="AC Section">Air-Conditioned Section</option>
+        <option value="Birthday / Celebration">Celebration Setup</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-primary" style="margin-top:12px; cursor:pointer;">
+      <i class="fa-brands fa-whatsapp"></i> Confirm Reservation on WhatsApp
+    </button>
+  </form>
+</div>
+
+<!-- Frequently Asked Questions -->
+<div class="section">
+  <h3 class="section-title">Frequently Asked Questions</h3>
+  <p class="section-desc">Quick answers to common guest questions.</p>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Are Veg and Non-Veg kitchens strictly separated?</span>
+      <i class="fa-solid fa-chevron-down text-xs"></i>
+    </div>
+    <div class="faq-answer">
+      Yes, absolutely. We maintain distinct cooking areas, separate utensils, and dedicated prep counters to respect pure vegetarian dining preferences.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What are your daily opening hours?</span>
+      <i class="fa-solid fa-chevron-down text-xs"></i>
+    </div>
+    <div class="faq-answer">
+      We are open all 7 days from 11:00 AM in the morning to 11:30 PM at night for dine-in, takeaway, and parcel orders.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Is vehicle parking available nearby?</span>
+      <i class="fa-solid fa-chevron-down text-xs"></i>
+    </div>
+    <div class="faq-answer">
+      Yes, convenient roadside parking for two-wheelers and four-wheelers is readily available near Narayan Bapu Nagar.
+    </div>
+  </div>
+</div>
+
+<!-- Map & Directions -->
+<div class="section">
+  <h3 class="section-title">Location &amp; Timings</h3>
+  <p class="section-desc">Narayan Bapu Nagar, Jail Road, Nashik, Maharashtra</p>
+  
+  <div style="border-radius:12px; overflow:hidden; border:1px solid #22222a; margin-bottom:14px;">
+    <iframe
+      src="https://www.google.com/maps?q=Narayan+Bapu+Nagar,+Jail+Road,+Nashik,+Maharashtra&output=embed"
+      width="100%" height="220" style="border:0; display:block;"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <a href="https://maps.app.goo.gl/yVc2sCxPZ37WjMUL9?g_st=ac" target="_blank" class="btn-secondary">
+    <i class="fa-solid fa-diamond-turn-right" style="color:#E52D3F;"></i> Navigate with Google Maps
+  </a>
+</div>
+
+<!-- Footer -->
+<footer style="padding: 24px 16px; text-align: center; border-top: 1px solid #1c1c22; color: #666; font-size: 11px;">
+  <p style="color:#AAA; font-size:13px; font-weight:700; margin-bottom:4px;">Hotel Redstone Food Corner</p>
+  <p>Narayan Bapu Nagar, Jail Road, Nashik</p>
+  <p style="margin-top: 10px;">&copy; Hotel Redstone. All rights reserved.</p>
+</footer>
+
+<!-- Bottom Floating Contact Bar -->
+<div class="floating-bar">
+  <a href="tel:+919049590042" class="f-call"><i class="fa-solid fa-phone"></i> Call</a>
+  <a href="https://wa.me/919049590042?text=Hi%20Redstone,%20I%20want%20to%20reserve%20a%20table" class="f-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+</div>
+
+<script>
+  // Menu Filtering
+  function filterMenu(category) {
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const cards = document.querySelectorAll('#menuGrid .card');
+    cards.forEach(card => {
+      if (category === 'all') {
+        card.style.display = 'block';
+      } else if (card.classList.contains('item-' + category)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Reservation Flow
+  document.getElementById('resForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name = encodeURIComponent(document.getElementById('gname').value.trim());
+    var phone = encodeURIComponent(document.getElementById('gphone').value.trim());
+    var date = encodeURIComponent(document.getElementById('gdate').value);
+    var guests = encodeURIComponent(document.getElementById('gguests').value);
+    var pref = encodeURIComponent(document.getElementById('gpref').value);
+
+    var text = "Hi Hotel Redstone, I want to book a table:%0A%0A" +
+               "👤 *Name:* " + name + "%0A" +
+               "📞 *Phone:* " + phone + "%0A" +
+               "📅 *Date:* " + date + "%0A" +
+               "👥 *Guests:* " + guests + "%0A" +
+               "📍 *Seating:* " + pref;
+
+    window.open("https://wa.me/919049590042?text=" + text, "_blank");
+  });
+</script>
+
+</body>
+</html>
 
