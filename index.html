@@ -33,7 +33,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(11, 11, 14, 0.95);
+    background: rgba(11, 11, 14, 0.96);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #1f1f26;
     padding: 12px 16px;
@@ -57,13 +57,13 @@
     gap: 6px;
   }
 
-  /* Hero Section */
+  /* Clean Dark Hero Section (No Pizza) */
   .hero {
     position: relative;
-    padding: 45px 16px 30px;
+    padding: 44px 16px 32px;
     text-align: center;
-    background: linear-gradient(180deg, rgba(229, 45, 63, 0.15) 0%, rgba(11, 11, 14, 0.95) 100%),
-                url('https://i.ibb.co/nNQdLbCR/special-chicken-thali-food-platter-consists-variety-veggieschicken-meat-lentilsrice-sweet-dish-snack.jpg') center/cover no-repeat;
+    background: radial-gradient(circle at center, rgba(229, 45, 63, 0.18) 0%, rgba(11, 11, 14, 0.98) 75%),
+                #111117;
     border-bottom: 1px solid #1f1f26;
   }
   .badge {
@@ -79,8 +79,8 @@
     font-weight: 700;
     margin-bottom: 14px;
   }
-  .hero h2 { font-size: 28px; font-weight: 900; line-height: 1.2; margin-bottom: 10px; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
-  .hero p { font-size: 13px; color: #d1d5db; margin-bottom: 22px; max-width: 480px; margin-inline: auto; text-shadow: 0 1px 4px rgba(0,0,0,0.8); }
+  .hero h2 { font-size: 28px; font-weight: 900; line-height: 1.2; margin-bottom: 10px; }
+  .hero p { font-size: 13px; color: #d1d5db; margin-bottom: 22px; max-width: 480px; margin-inline: auto; }
 
   .hero-cta { display: flex; flex-direction: column; gap: 9px; max-width: 360px; margin-inline: auto; }
   .btn-primary {
@@ -124,12 +124,12 @@
   .stat-item h4 { font-size: 20px; font-weight: 800; color: #fbbf24; }
   .stat-item p { font-size: 10px; color: #9ca3af; text-transform: uppercase; margin-top: 2px; font-weight: 600; }
 
-  /* Common Sections */
+  /* Sections */
   .section { padding: 32px 16px; border-bottom: 1px solid #1f1f26; }
-  .section-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.2px; }
+  .section-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
   .section-desc { font-size: 12px; color: #9ca3af; margin-bottom: 18px; }
 
-  /* Food Markers */
+  /* FSSAI Indicators */
   .marker {
     display: inline-flex;
     align-items: center;
@@ -169,7 +169,7 @@
   .signature-marathi { font-size: 11px; color: #9ca3af; margin-top: 2px; }
   .signature-price { font-size: 13px; font-weight: 800; color: #fbbf24; margin-top: 6px; }
 
-  /* Search & Filter Tabs */
+  /* Search & Tabs */
   .menu-search {
     width: 100%;
     background: #141419;
@@ -207,7 +207,7 @@
     color: #fff;
   }
 
-  /* Compact Informative Menu List */
+  /* Menu List */
   .menu-list { display: flex; flex-direction: column; gap: 10px; }
   .menu-row {
     display: flex;
@@ -224,7 +224,7 @@
   .price-val { font-size: 14px; font-weight: 800; color: #fbbf24; }
   .price-tag { font-size: 10px; color: #82828e; text-transform: uppercase; }
 
-  /* Highlights Grid */
+  /* Features Grid */
   .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .feature-box {
     background: #131318;
@@ -246,7 +246,7 @@
   .catering-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
   .catering-card p { font-size: 12px; color: #bbb; margin-bottom: 16px; line-height: 1.5; }
 
-  /* Booking Form */
+  /* Reservation Form */
   .form-group { margin-bottom: 12px; }
   .form-group label { display: block; font-size: 11px; color: #9ca3af; margin-bottom: 5px; text-transform: uppercase; font-weight: 700; }
   .form-control {
@@ -261,7 +261,7 @@
   }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-  /* Interactive FAQ Accordion */
+  /* Accordion FAQ */
   .faq-item {
     background: #141419;
     border: 1px solid #202029;
@@ -288,7 +288,7 @@
     display: none;
   }
 
-  /* Floating Bottom Contact Bar */
+  /* Floating Bottom Bar */
   .floating-bar {
     position: fixed;
     bottom: 0;
@@ -315,7 +315,7 @@
     gap: 6px;
   }
   .f-call { background: #17171d; border: 1px solid #2b2b36; color: white; }
-  .f-wa { background: #e52d3f; color: white; box-shadow: 0 3px 12px rgba(229, 45, 63, 0.4); }
+  .f-wa { background: #e52d3f; color: white; }
 </style>
 </head>
 <body>
@@ -353,7 +353,7 @@
   </div>
 </div>
 
-<!-- Live Counter Strip -->
+<!-- Stats Counter -->
 <div class="stats-bar">
   <div class="stat-item">
     <h4>4.5 ★</h4>
@@ -369,7 +369,7 @@
   </div>
 </div>
 
-<!-- Visual Signature Scroller (11 Food Photos) -->
+<!-- Visual Signature Scroller -->
 <div class="section">
   <h3 class="section-title">Chef's Signature Specials</h3>
   <p class="section-desc">Handcrafted regional recipes loved by Nashik food enthusiasts.</p>
@@ -387,7 +387,31 @@
       </div>
     </div>
 
-    <!-- 2. Tangdi Kebab -->
+    <!-- 2. Butter Pav Bhaji -->
+    <div class="signature-card">
+      <img src="https://i.ibb.co/0y7tW1JG/mouthwatering-pav-bhaji-served-buttery-pav-buns-garnished-with-chopped-onions-and-lime-wedges-photo.jpg" alt="Butter Pav Bhaji">
+      <div class="signature-body">
+        <div class="signature-title">
+          <span><span class="marker marker-veg"></span> Amul Butter Pav Bhaji</span>
+        </div>
+        <div class="signature-marathi">बटर पाव भाजी</div>
+        <div class="signature-price">₹80</div>
+      </div>
+    </div>
+
+    <!-- 3. Crispy Masala Dosa -->
+    <div class="signature-card">
+      <img src="https://i.ibb.co/mrqJFRJz/indian-1768906-640.jpg" alt="Crispy Masala Dosa">
+      <div class="signature-body">
+        <div class="signature-title">
+          <span><span class="marker marker-veg"></span> Crispy Masala Dosa</span>
+        </div>
+        <div class="signature-marathi">मसाला डोसा</div>
+        <div class="signature-price">₹50</div>
+      </div>
+    </div>
+
+    <!-- 4. Tangdi Kebab -->
     <div class="signature-card">
       <img src="https://i.ibb.co/wZNZGd4M/Tangdi-kebab-recipe-palates-desire-5.jpg" alt="Tangdi Kebab">
       <div class="signature-body">
@@ -399,7 +423,7 @@
       </div>
     </div>
 
-    <!-- 3. Classic Chicken Thali -->
+    <!-- 5. Classic Chicken Thali -->
     <div class="signature-card">
       <img src="https://i.ibb.co/cXCn3hR9/chicken-thali-indian-cuisine-food-platter-consists-variety-veggies-meat-lentils-rice-sweet-dish-snac.jpg" alt="Chicken Thali">
       <div class="signature-body">
@@ -408,30 +432,6 @@
         </div>
         <div class="signature-marathi">चिकन थाळी (भाकरी/रोटी)</div>
         <div class="signature-price">₹220</div>
-      </div>
-    </div>
-
-    <!-- 4. Butter Pav Bhaji -->
-    <div class="signature-card">
-      <img src="https://i.ibb.co/8ggYW5ng/360-F-27579652-t-M7-V4f-ZBBw8-RLm-Zo0-Bi8-Wht-O2-Eos-TRFD.jpg" alt="Butter Pav Bhaji">
-      <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-veg"></span> Butter Pav Bhaji</span>
-        </div>
-        <div class="signature-marathi">बटर पाव भाजी</div>
-        <div class="signature-price">₹80</div>
-      </div>
-    </div>
-
-    <!-- 5. Tandoori Chicken Starters -->
-    <div class="signature-card">
-      <img src="https://i.ibb.co/4nvTwq7n/360-F-1670644406-Z6y-G7rn6-ZEPPPPr-FUvcvvdj3-Xg-Cm-JNwr.jpg" alt="Tandoori Starters">
-      <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-nonveg"></span> Tandoori Platter</span>
-        </div>
-        <div class="signature-marathi">तंदूरी चिकन स्टार्टर</div>
-        <div class="signature-price">₹250 / ₹480</div>
       </div>
     </div>
 
@@ -447,7 +447,19 @@
       </div>
     </div>
 
-    <!-- 7. Hakka Noodles -->
+    <!-- 7. Tandoori Chicken Starters -->
+    <div class="signature-card">
+      <img src="https://i.ibb.co/4nvTwq7n/360-F-1670644406-Z6y-G7rn6-ZEPPPPr-FUvcvvdj3-Xg-Cm-JNwr.jpg" alt="Tandoori Starters">
+      <div class="signature-body">
+        <div class="signature-title">
+          <span><span class="marker marker-nonveg"></span> Tandoori Platter</span>
+        </div>
+        <div class="signature-marathi">तंदूरी चिकन स्टार्टर</div>
+        <div class="signature-price">₹250 / ₹480</div>
+      </div>
+    </div>
+
+    <!-- 8. Schezwan Noodles -->
     <div class="signature-card">
       <img src="https://i.ibb.co/3yXMN1rs/plate-food-with-noodles-meat-vegetables-1197144-525.jpg" alt="Noodles">
       <div class="signature-body">
@@ -459,7 +471,7 @@
       </div>
     </div>
 
-    <!-- 8. Pizza Delights -->
+    <!-- 9. Pizza Delights -->
     <div class="signature-card">
       <img src="https://i.ibb.co/JjB470Zd/360-F-585513545-Opea2i-OSwgkt-ZQvof84-Wqj-Tbld3-TUQBK.jpg" alt="Pizza">
       <div class="signature-body">
@@ -471,7 +483,7 @@
       </div>
     </div>
 
-    <!-- 9. Shakes & Falooda -->
+    <!-- 10. Shakes & Falooda -->
     <div class="signature-card">
       <img src="https://i.ibb.co/5XYzLJPS/photo-1553787499-6f9133860278.jpg" alt="Thick Shake">
       <div class="signature-body">
@@ -480,18 +492,6 @@
         </div>
         <div class="signature-marathi">चॉकलेट / ओरियो मिल्कशेक</div>
         <div class="signature-price">₹89</div>
-      </div>
-    </div>
-
-    <!-- 10. South Indian Dosa -->
-    <div class="signature-card">
-      <img src="https://i.ibb.co/LXvt7fTJ/pexels-shootsaga-33430554.jpg" alt="Masala Dosa">
-      <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-veg"></span> Crispy Masala Dosa</span>
-        </div>
-        <div class="signature-marathi">मसाला डोसा</div>
-        <div class="signature-price">₹50</div>
       </div>
     </div>
 
@@ -509,7 +509,7 @@
   </div>
 </div>
 
-<!-- Full Interactive Digital Menu -->
+<!-- Complete Digital Menu -->
 <div class="section">
   <h3 class="section-title">Complete Digital Menu</h3>
   <p class="section-desc">Search or filter through our authentic food collection.</p>
@@ -935,7 +935,7 @@
   </div>
 </div>
 
-<!-- Catering & Party Orders Section -->
+<!-- Catering & Party Section -->
 <div class="section">
   <div class="catering-card">
     <span style="color:#fbbf24; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">Parties &amp; Bulk Orders</span>
@@ -947,7 +947,7 @@
   </div>
 </div>
 
-<!-- Why Choose Us -->
+<!-- Features -->
 <div class="section">
   <h3 class="section-title">The Redstone Standard</h3>
   <p class="section-desc">Why Nashik food lovers recommend us.</p>
@@ -1060,7 +1060,7 @@
   </div>
 </div>
 
-<!-- Map & Location -->
+<!-- Map & Directions -->
 <div class="section">
   <h3 class="section-title">Location &amp; Directions</h3>
   <p class="section-desc">Narayan Bapu Nagar, Jail Road, Nashik, Maharashtra</p>
@@ -1084,14 +1084,14 @@
   <p style="margin-top: 10px;">&copy; Hotel Redstone. All rights reserved.</p>
 </footer>
 
-<!-- Bottom Floating Contact Bar -->
+<!-- Floating Bottom Bar -->
 <div class="floating-bar">
   <a href="tel:+919049590042" class="f-call"><i class="fa-solid fa-phone"></i> Call Now</a>
   <a href="https://wa.me/919049590042?text=Hi%20Redstone,%20I%20want%20to%20reserve%20a%20table" class="f-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
 </div>
 
 <script>
-  // Tab Filter
+  // Filter Function
   function filterMenuCategory(category, element) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     element.classList.add('active');
@@ -1108,7 +1108,7 @@
     });
   }
 
-  // Live Dish Search
+  // Dish Search
   function searchMenuItems() {
     const query = document.getElementById('menuSearchInput').value.toLowerCase();
     const rows = document.querySelectorAll('#fullMenuList .menu-row');
@@ -1123,7 +1123,7 @@
     });
   }
 
-  // FAQ Accordion
+  // Accordion Toggle
   function toggleFaq(el) {
     el.classList.toggle('active');
     const answer = el.nextElementSibling;
@@ -1134,7 +1134,7 @@
     }
   }
 
-  // Reservation via WhatsApp
+  // WhatsApp Lead Generation
   document.getElementById('resForm').addEventListener('submit', function(e) {
     e.preventDefault();
     var name = encodeURIComponent(document.getElementById('gname').value.trim());
