@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hotel Redstone | Veg &amp; Non-Veg Family Restaurant Nashik</title>
+<title>Redstone Family Restaurant | Veg &amp; Non-Veg Nashik</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,7 +16,6 @@
   }
   a { text-decoration: none; color: inherit; }
 
-  /* Notification Bar */
   .alert-bar {
     background: linear-gradient(90deg, #b91c1c, #e52d3f);
     color: #ffffff;
@@ -28,7 +27,6 @@
     text-transform: uppercase;
   }
 
-  /* Header */
   header {
     position: sticky;
     top: 0;
@@ -36,15 +34,39 @@
     background: rgba(11, 11, 14, 0.96);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #1f1f26;
-    padding: 12px 16px;
+    padding: 10px 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   .brand { display: flex; align-items: center; gap: 10px; }
-  .brand img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid #e52d3f; }
-  .brand-text h1 { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; }
-  .brand-text span { font-size: 10px; color: #9ca3af; text-transform: uppercase; display: block; font-weight: 600; }
+  
+  /* CROPPED LOGO CONTAINER: Zoomed in to remove white space */
+  .brand-logo-wrap {
+    width: 65px;
+    height: 34px;
+    background: #ffffff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1.5px solid #e52d3f;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .brand-logo-wrap img {
+    position: absolute;
+    width: 280%;
+    max-width: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .brand-text h1 { font-size: 15px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; }
+  .brand-text span { font-size: 10px; color: #9ca3af; text-transform: uppercase; display: block; font-weight: 600; margin-top: 2px; }
+  
   .header-btn {
     background: #e52d3f;
     color: #fff;
@@ -57,13 +79,11 @@
     gap: 6px;
   }
 
-  /* Clean Dark Hero Section (No Pizza) */
   .hero {
     position: relative;
     padding: 44px 16px 32px;
     text-align: center;
-    background: radial-gradient(circle at center, rgba(229, 45, 63, 0.18) 0%, rgba(11, 11, 14, 0.98) 75%),
-                #111117;
+    background: radial-gradient(circle at center, rgba(229, 45, 63, 0.18) 0%, rgba(11, 11, 14, 0.98) 75%), #111117;
     border-bottom: 1px solid #1f1f26;
   }
   .badge {
@@ -112,7 +132,6 @@
     border-radius: 30px;
   }
 
-  /* Stats Bar */
   .stats-bar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -124,30 +143,27 @@
   .stat-item h4 { font-size: 20px; font-weight: 800; color: #fbbf24; }
   .stat-item p { font-size: 10px; color: #9ca3af; text-transform: uppercase; margin-top: 2px; font-weight: 600; }
 
-  /* Sections */
   .section { padding: 32px 16px; border-bottom: 1px solid #1f1f26; }
   .section-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
   .section-desc { font-size: 12px; color: #9ca3af; margin-bottom: 18px; }
 
-  /* FSSAI Indicators */
   .marker {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     border-radius: 3px;
     border: 1.5px solid;
+    margin-right: 6px;
+    flex-shrink: 0;
     background: transparent;
-    vertical-align: middle;
-    margin-right: 5px;
   }
   .marker-veg { border-color: #22c55e; }
-  .marker-veg::after { content: ''; width: 6px; height: 6px; background: #22c55e; border-radius: 50%; }
+  .marker-veg::after { content: ''; display: block; width: 5px; height: 5px; background: #22c55e; border-radius: 50%; }
   .marker-nonveg { border-color: #ef4444; }
-  .marker-nonveg::after { content: ''; width: 6px; height: 6px; background: #ef4444; border-radius: 50%; }
+  .marker-nonveg::after { content: ''; display: block; width: 5px; height: 5px; background: #ef4444; border-radius: 50%; }
 
-  /* Chef Signature Showcase (Visual Grid) */
   .signature-scroller {
     display: flex;
     gap: 12px;
@@ -165,11 +181,10 @@
   }
   .signature-card img { width: 100%; height: 145px; object-fit: cover; display: block; }
   .signature-body { padding: 12px; }
-  .signature-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
-  .signature-marathi { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+  .signature-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; }
+  .signature-marathi { font-size: 11px; color: #d1d5db; margin-top: 2px; font-weight: 500; }
   .signature-price { font-size: 13px; font-weight: 800; color: #fbbf24; margin-top: 6px; }
 
-  /* Search & Tabs */
   .menu-search {
     width: 100%;
     background: #141419;
@@ -207,8 +222,7 @@
     color: #fff;
   }
 
-  /* Menu List */
-  .menu-list { display: flex; flex-direction: column; gap: 10px; }
+  .menu-list { display: flex; flex-direction: column; gap: 10px; min-height: 200px; }
   .menu-row {
     display: flex;
     justify-content: space-between;
@@ -218,13 +232,20 @@
     border-radius: 10px;
     padding: 12px 14px;
   }
-  .item-info h5 { font-size: 14px; font-weight: 700; display: flex; align-items: center; }
-  .item-info span { font-size: 11px; color: #82828e; display: block; margin-top: 1px; }
+  .item-info { max-width: 72%; }
+  .item-info h5 { font-size: 14px; font-weight: 700; display: flex; align-items: center; line-height: 1.3; }
+  .item-info span { 
+    font-size: 11px; 
+    color: #d1d5db; 
+    display: block; 
+    margin-top: 2px; 
+    font-weight: 500;
+    letter-spacing: 0.2px;
+  }
   .item-pricing { text-align: right; }
-  .price-val { font-size: 14px; font-weight: 800; color: #fbbf24; }
-  .price-tag { font-size: 10px; color: #82828e; text-transform: uppercase; }
+  .price-val { font-size: 14px; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+  .price-tag { font-size: 10px; color: #9ca3af; text-transform: uppercase; margin-top: 2px; }
 
-  /* Features Grid */
   .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .feature-box {
     background: #131318;
@@ -236,7 +257,6 @@
   .feature-box h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
   .feature-box p { font-size: 11px; color: #82828e; line-height: 1.4; }
 
-  /* Catering Banner */
   .catering-card {
     background: linear-gradient(135deg, #221215 0%, #14141a 100%);
     border: 1px solid rgba(229, 45, 63, 0.35);
@@ -246,7 +266,6 @@
   .catering-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
   .catering-card p { font-size: 12px; color: #bbb; margin-bottom: 16px; line-height: 1.5; }
 
-  /* Reservation Form */
   .form-group { margin-bottom: 12px; }
   .form-group label { display: block; font-size: 11px; color: #9ca3af; margin-bottom: 5px; text-transform: uppercase; font-weight: 700; }
   .form-control {
@@ -261,7 +280,6 @@
   }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-  /* Accordion FAQ */
   .faq-item {
     background: #141419;
     border: 1px solid #202029;
@@ -288,7 +306,6 @@
     display: none;
   }
 
-  /* Floating Bottom Bar */
   .floating-bar {
     position: fixed;
     bottom: 0;
@@ -326,9 +343,11 @@
 
 <header>
   <div class="brand">
-    <img src="https://i.ibb.co/0jxFscyZ/393225417-1692051837973652-4376235204209336957-n.jpg" alt="Hotel Redstone Logo">
+    <div class="brand-logo-wrap">
+      <img src="https://i.ibb.co/PzfnwPTK/redstone-pdf-page-0001.jpg" alt="Redstone Logo">
+    </div>
     <div class="brand-text">
-      <h1>Hotel Redstone</h1>
+      <h1>Redstone Family Restaurant</h1>
       <span>Jail Road • Nashik</span>
     </div>
   </div>
@@ -337,9 +356,8 @@
   </a>
 </header>
 
-<!-- Hero Section -->
 <div class="hero">
-  <div class="badge"><i class="fa-solid fa-utensils"></i> Veg &amp; Non-Veg Family Restaurant</div>
+  <div class="badge"><i class="fa-solid fa-utensils"></i> Veg &amp; Non-Veg Family Dining</div>
   <h2>Nashik's Premier Food Destination</h2>
   <p>Renowned for our Grand Mutton &amp; Chicken Thalis, Clay-Oven Tandoori Delights, Street-Style Pav Bhaji, and Fresh South Indian Delicacies.</p>
   
@@ -353,7 +371,6 @@
   </div>
 </div>
 
-<!-- Stats Counter -->
 <div class="stats-bar">
   <div class="stat-item">
     <h4>4.5 ★</h4>
@@ -364,590 +381,153 @@
     <p>Daily Guests</p>
   </div>
   <div class="stat-item">
-    <h4>100+</h4>
+    <h4>150+</h4>
     <p>Menu Varieties</p>
   </div>
 </div>
 
-<!-- Visual Signature Scroller -->
 <div class="section">
   <h3 class="section-title">Chef's Signature Specials</h3>
   <p class="section-desc">Handcrafted regional recipes loved by Nashik food enthusiasts.</p>
 
   <div class="signature-scroller">
-    <!-- 1. Special Chicken Thali -->
     <div class="signature-card">
       <img src="https://i.ibb.co/nNQdLbCR/special-chicken-thali-food-platter-consists-variety-veggieschicken-meat-lentilsrice-sweet-dish-snack.jpg" alt="Special Chicken Thali">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-nonveg"></span> Redstone Sp. Chicken Thali</span>
-        </div>
+        <div class="signature-title"><span class="marker marker-nonveg"></span> Redstone Sp. Chicken Thali</div>
         <div class="signature-marathi">रेडस्टोन स्पेशल चिकन थाळी</div>
         <div class="signature-price">₹340</div>
       </div>
     </div>
 
-    <!-- 2. Butter Pav Bhaji -->
     <div class="signature-card">
       <img src="https://i.ibb.co/0y7tW1JG/mouthwatering-pav-bhaji-served-buttery-pav-buns-garnished-with-chopped-onions-and-lime-wedges-photo.jpg" alt="Butter Pav Bhaji">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-veg"></span> Amul Butter Pav Bhaji</span>
-        </div>
+        <div class="signature-title"><span class="marker marker-veg"></span> Butter Pav Bhaji</div>
         <div class="signature-marathi">बटर पाव भाजी</div>
-        <div class="signature-price">₹80</div>
+        <div class="signature-price">₹69</div>
       </div>
     </div>
 
-    <!-- 3. Crispy Masala Dosa -->
     <div class="signature-card">
       <img src="https://i.ibb.co/mrqJFRJz/indian-1768906-640.jpg" alt="Crispy Masala Dosa">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-veg"></span> Crispy Masala Dosa</span>
-        </div>
+        <div class="signature-title"><span class="marker marker-veg"></span> Crispy Masala Dosa</div>
         <div class="signature-marathi">मसाला डोसा</div>
-        <div class="signature-price">₹50</div>
+        <div class="signature-price">₹55</div>
       </div>
     </div>
 
-    <!-- 4. Tangdi Kebab -->
     <div class="signature-card">
-      <img src="https://i.ibb.co/wZNZGd4M/Tangdi-kebab-recipe-palates-desire-5.jpg" alt="Tangdi Kebab">
+      <img src="https://i.ibb.co/wZNZGd4M/Tangdi-kebab-recipe-palates-desire-5.jpg" alt="Chicken Tangdi Kebab">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-nonveg"></span> Chicken Tangadi Kabab</span>
-        </div>
+        <div class="signature-title"><span class="marker marker-nonveg"></span> Chicken Tangdi Kebab</div>
         <div class="signature-marathi">चिकन तंगडी कबाब</div>
-        <div class="signature-price">₹240</div>
+        <div class="signature-price">₹260</div>
       </div>
     </div>
 
-    <!-- 5. Classic Chicken Thali -->
     <div class="signature-card">
-      <img src="https://i.ibb.co/cXCn3hR9/chicken-thali-indian-cuisine-food-platter-consists-variety-veggies-meat-lentils-rice-sweet-dish-snac.jpg" alt="Chicken Thali">
+      <img src="https://i.ibb.co/cXCn3hR9/chicken-thali-indian-cuisine-food-platter-consists-variety-veggies-meat-lentils-rice-sweet-dish-snac.jpg" alt="Classic Chicken Thali">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-nonveg"></span> Classic Chicken Thali</span>
-        </div>
-        <div class="signature-marathi">चिकन थाळी (भाकरी/रोटी)</div>
+        <div class="signature-title"><span class="marker marker-nonveg"></span> Classic Chicken Thali</div>
+        <div class="signature-marathi">चिकन थाळी</div>
         <div class="signature-price">₹220</div>
       </div>
     </div>
 
-    <!-- 6. Chicken Qorma / Handi Special -->
     <div class="signature-card">
-      <img src="https://i.ibb.co/LDKPzWSv/3d-rendered-photo-chicken-qorma-with-simple-background-1149190-12567.jpg" alt="Chicken Qorma">
+      <img src="https://i.ibb.co/LDKPzWSv/3d-rendered-photo-chicken-qorma-with-simple-background-1149190-12567.jpg" alt="Chicken Handi">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-nonveg"></span> Redstone Sp. Chicken Handi</span>
-        </div>
+        <div class="signature-title"><span class="marker marker-nonveg"></span> Redstone Sp. Chicken Handi</div>
         <div class="signature-marathi">रेडस्टोन स्पेशल चिकन हंडी</div>
-        <div class="signature-price">₹320 / ₹540</div>
+        <div class="signature-price">₹340 / ₹560</div>
       </div>
     </div>
 
-    <!-- 7. Tandoori Chicken Starters -->
     <div class="signature-card">
-      <img src="https://i.ibb.co/4nvTwq7n/360-F-1670644406-Z6y-G7rn6-ZEPPPPr-FUvcvvdj3-Xg-Cm-JNwr.jpg" alt="Tandoori Starters">
+      <img src="https://i.ibb.co/4nvTwq7n/360-F-1670644406-Z6y-G7rn6-ZEPPPPr-FUvcvvdj3-Xg-Cm-JNwr.jpg" alt="Chicken Lollipop">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-nonveg"></span> Tandoori Platter</span>
-        </div>
-        <div class="signature-marathi">तंदूरी चिकन स्टार्टर</div>
-        <div class="signature-price">₹250 / ₹480</div>
+        <div class="signature-title"><span class="marker marker-nonveg"></span> Chicken Lollipop Fry</div>
+        <div class="signature-marathi">चिकन लॉलीपॉप फ्राय</div>
+        <div class="signature-price">₹100 / ₹170</div>
       </div>
     </div>
 
-    <!-- 8. Schezwan Noodles -->
     <div class="signature-card">
-      <img src="https://i.ibb.co/3yXMN1rs/plate-food-with-noodles-meat-vegetables-1197144-525.jpg" alt="Noodles">
+      <img src="https://i.ibb.co/3yXMN1rs/plate-food-with-noodles-meat-vegetables-1197144-525.jpg" alt="Chicken Dum Biryani">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-nonveg"></span> Chicken Schezwan Noodles</span>
-        </div>
-        <div class="signature-marathi">चिकन शेझवान नूडल्स</div>
-        <div class="signature-price">₹100 / ₹150</div>
+        <div class="signature-title"><span class="marker marker-nonveg"></span> Chicken Dum Biryani</div>
+        <div class="signature-marathi">चिकन दम बिर्याणी</div>
+        <div class="signature-price">₹200</div>
       </div>
     </div>
 
-    <!-- 9. Pizza Delights -->
     <div class="signature-card">
-      <img src="https://i.ibb.co/JjB470Zd/360-F-585513545-Opea2i-OSwgkt-ZQvof84-Wqj-Tbld3-TUQBK.jpg" alt="Pizza">
+      <img src="https://i.ibb.co/8ggYW5ng/360-F-27579652-t-M7-V4f-ZBBw8-RLm-Zo0-Bi8-Wht-O2-Eos-TRFD.jpg" alt="Redstone Special Pizza">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-veg"></span> Redstone Sp. Pizza</span>
-        </div>
+        <div class="signature-title"><span class="marker marker-veg"></span> Redstone Sp. Pizza</div>
         <div class="signature-marathi">रेडस्टोन स्पे. पिझ्झा</div>
-        <div class="signature-price">₹179</div>
+        <div class="signature-price">₹169</div>
       </div>
     </div>
 
-    <!-- 10. Shakes & Falooda -->
     <div class="signature-card">
       <img src="https://i.ibb.co/5XYzLJPS/photo-1553787499-6f9133860278.jpg" alt="Thick Shake">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-veg"></span> Chocolate &amp; Oreo Shake</span>
-        </div>
-        <div class="signature-marathi">चॉकलेट / ओरियो मिल्कशेक</div>
-        <div class="signature-price">₹89</div>
+        <div class="signature-title"><span class="marker marker-veg"></span> Brownie Thick Shake</div>
+        <div class="signature-marathi">ब्राऊनी थिक शेक</div>
+        <div class="signature-price">₹119</div>
       </div>
     </div>
 
-    <!-- 11. Street Chaat & Puri -->
     <div class="signature-card">
-      <img src="https://i.ibb.co/whNXMdW1/pexels-nikhil-raut-211351553-11762852.jpg" alt="Pani Puri & Chaat">
+      <img src="https://i.ibb.co/S4JNkkPC/dahi-puri-24578783.jpg" alt="Special Dahi Puri">
       <div class="signature-body">
-        <div class="signature-title">
-          <span><span class="marker marker-veg"></span> Special Panipuri &amp; Dahi Puri</span>
-        </div>
-        <div class="signature-marathi">पाणीपुरी / दहीपुरी</div>
-        <div class="signature-price">₹35 / ₹45</div>
+        <div class="signature-title"><span class="marker marker-veg"></span> Special Dahi Puri</div>
+        <div class="signature-marathi">दहीपुरी / पाणीपुरी</div>
+        <div class="signature-price">₹35 / ₹25</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Complete Digital Menu -->
 <div class="section">
   <h3 class="section-title">Complete Digital Menu</h3>
-  <p class="section-desc">Search or filter through our authentic food collection.</p>
+  <p class="section-desc">Search or filter through our complete food menu collection.</p>
 
-  <input type="text" id="menuSearchInput" class="menu-search" placeholder="🔍 Search dishes (e.g. Biryani, Thali, Shake, Dosa)..." onkeyup="searchMenuItems()">
+  <input type="text" id="menuSearchInput" class="menu-search" placeholder="🔍 Search any dish (e.g. Surmai, Biryani, Thali, Paneer, Waffle)..." onkeyup="filterMenu()">
 
-  <div class="tab-row">
-    <button class="tab-btn active" onclick="filterMenuCategory('all', this)">All Items</button>
-    <button class="tab-btn" onclick="filterMenuCategory('thali', this)">Grand Thalis</button>
-    <button class="tab-btn" onclick="filterMenuCategory('nonveg', this)">Chicken &amp; Mutton</button>
-    <button class="tab-btn" onclick="filterMenuCategory('veg', this)">Pure Veg Main Course</button>
-    <button class="tab-btn" onclick="filterMenuCategory('pavbhaji', this)">Pav Bhaji &amp; Chaat</button>
-    <button class="tab-btn" onclick="filterMenuCategory('fastfood', this)">Pizzas, Burgers &amp; Maggie</button>
-    <button class="tab-btn" onclick="filterMenuCategory('shakes', this)">Shakes &amp; Falooda</button>
-    <button class="tab-btn" onclick="filterMenuCategory('chinese', this)">Chinese &amp; Rolls</button>
-    <button class="tab-btn" onclick="filterMenuCategory('south', this)">South Indian</button>
+  <div class="tab-row" id="tabContainer">
+    <button class="tab-btn active" onclick="setCategory('all', this)">All Items</button>
+    <button class="tab-btn" onclick="setCategory('thali', this)">Grand Thalis</button>
+    <button class="tab-btn" onclick="setCategory('tandoor', this)">Tandoori &amp; Starters</button>
+    <button class="tab-btn" onclick="setCategory('seafood', this)">Seafood</button>
+    <button class="tab-btn" onclick="setCategory('nonveg_main', this)">Chicken &amp; Mutton</button>
+    <button class="tab-btn" onclick="setCategory('veg_main', this)">Veg Main Course</button>
+    <button class="tab-btn" onclick="setCategory('roti_rice', this)">Breads &amp; Biryani</button>
+    <button class="tab-btn" onclick="setCategory('breakfast', this)">Breakfast &amp; South Indian</button>
+    <button class="tab-btn" onclick="setCategory('pav_chaat', this)">Pav Bhaji &amp; Chaat</button>
+    <button class="tab-btn" onclick="setCategory('fastfood', this)">Pizzas &amp; Burgers</button>
+    <button class="tab-btn" onclick="setCategory('momos_pasta', this)">Momos, Rolls &amp; Pasta</button>
+    <button class="tab-btn" onclick="setCategory('chinese', this)">Chinese</button>
+    <button class="tab-btn" onclick="setCategory('desserts', this)">Shakes, Waffles &amp; Tea</button>
   </div>
 
-  <div class="menu-list" id="fullMenuList">
-    <!-- Grand Thalis -->
-    <div class="menu-row cat-thali">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Redstone Sp. Mutton Thali</h5>
-        <span>रेडस्टोन स्पेशल मटन थाळी (Mutton Curry, Fry, Biryani/Pulaw, 3 Roti/Bhakari)</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹390</div>
-        <div class="price-tag">Full Thali</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-thali">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Redstone Sp. Chicken Thali</h5>
-        <span>रेडस्टोन स्पेशल चिकन थाळी (Chicken Curry, Khima, Egg, Fry, Biryani, Roti/Bhakari)</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹340</div>
-        <div class="price-tag">Full Thali</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-thali">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Mutton Thali</h5>
-        <span>मटन थाळी (Mutton Curry, Chicken Kheema, 2 Roti / 1 Bhakari, Rice)</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹290</div>
-        <div class="price-tag">Thali</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-thali">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Chicken Thali</h5>
-        <span>चिकन थाळी (Chicken Curry, 2 Roti / 1 Bhakari, 1 Wati Rice)</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹220</div>
-        <div class="price-tag">Thali</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-thali">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Redstone Special Veg Thali</h5>
-        <span>रेडस्टोन स्पेशल व्हेज थाळी (2 Sabji, Rice, Daal, Papad, Bhakari/Roti, Sweet)</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹230</div>
-        <div class="price-tag">Thali</div>
-      </div>
-    </div>
-
-    <!-- Non Veg Specialties -->
-    <div class="menu-row cat-nonveg">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Sp. Chicken Murg Masalam</h5>
-        <span>चिकन मुर्ग मुसल्लम</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹380 / ₹680</div>
-        <div class="price-tag">Half / Full</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-nonveg">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Redstone Sp. Chicken Handi</h5>
-        <span>रेडस्टोन स्पेशल चिकन हंडी</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹320 / ₹540</div>
-        <div class="price-tag">Half / Full</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-nonveg">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Butter Chicken</h5>
-        <span>बटर चिकन</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹350 / ₹650</div>
-        <div class="price-tag">Half / Full</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-nonveg">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Redstone Sp. Mutton Handi</h5>
-        <span>मटन हंडी</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹430 / ₹760</div>
-        <div class="price-tag">Half / Full</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-nonveg">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Chicken Dum Biryani</h5>
-        <span>चिकन दम बिर्याणी</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹190</div>
-        <div class="price-tag">Portion</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-nonveg">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Tandoori Chicken</h5>
-        <span>तंदूरी चिकन (Slow charcoal roasted)</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹250 / ₹480</div>
-        <div class="price-tag">Half / Full</div>
-      </div>
-    </div>
-
-    <!-- Veg Main Course -->
-    <div class="menu-row cat-veg">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Paneer Butter Masala</h5>
-        <span>पनीर बटर मसाला</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹220</div>
-        <div class="price-tag">Portion</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-veg">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Redstone Special Veg</h5>
-        <span>रेडस्टोन स्पे. व्हेज</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹280</div>
-        <div class="price-tag">Signature</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-veg">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Kaju Curry / Kaju Masala</h5>
-        <span>काजू करी / काजू मसाला</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹220 / ₹230</div>
-        <div class="price-tag">Portion</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-veg">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Shev Bhaji (Kala / Lal Masala)</h5>
-        <span>शेव भाजी (काळा / लाल मसाला)</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹130 / ₹100</div>
-        <div class="price-tag">Nashik Sp.</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-veg">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Dal Tadka / Dal Fry</h5>
-        <span>दाल तडका / डाळ फ्राय</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹130 / ₹120</div>
-        <div class="price-tag">Portion</div>
-      </div>
-    </div>
-
-    <!-- Pav Bhaji & Chaat -->
-    <div class="menu-row cat-pavbhaji">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Butter Pav Bhaji</h5>
-        <span>बटर पाव भाजी</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹80</div>
-        <div class="price-tag">Plate</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-pavbhaji">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Cheese Pav Bhaji</h5>
-        <span>चीज पाव भाजी</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹110</div>
-        <div class="price-tag">Special</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-pavbhaji">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Kolhapuri Pav Bhaji / Jain Pav Bhaji</h5>
-        <span>कोल्हापुरी पाव भाजी / जैन पाव भाजी</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹90</div>
-        <div class="price-tag">Plate</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-pavbhaji">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Tawa Pulaw (Half / Full)</h5>
-        <span>तवा पुलाव</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹80 / ₹110</div>
-        <div class="price-tag">Half / Full</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-pavbhaji">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Panipuri / Shevpuri / Dahi Puri</h5>
-        <span>पाणीपुरी / शेवपुरी / दहीपुरी</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹35 / ₹40 / ₹45</div>
-        <div class="price-tag">Chaat</div>
-      </div>
-    </div>
-
-    <!-- Fast Food (Pizzas, Burgers & Maggie) -->
-    <div class="menu-row cat-fastfood">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Redstone Sp. Pizza</h5>
-        <span>रेडस्टोन स्पे. पिझ्झा</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹179</div>
-        <div class="price-tag">Signature</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-fastfood">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Margherita / Golden Corn Pizza</h5>
-        <span>मार्गेरिटा / गोल्डन कॉर्न पिझ्झा</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹109</div>
-        <div class="price-tag">Fresh Bake</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-fastfood">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Tandoori Paneer Pizza</h5>
-        <span>तंदूरी पनीर पिझ्झा</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹159</div>
-        <div class="price-tag">Special</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-fastfood">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Chicken Burger / Chicken Cheese Burger</h5>
-        <span>चिकन बर्गर / चिकन चीज बर्गर</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹99 / ₹119</div>
-        <div class="price-tag">Burger</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-fastfood">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Butter Masala / Cheese Maggie</h5>
-        <span>बटर मसाला / चीज मॅगी</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹69</div>
-        <div class="price-tag">Snack</div>
-      </div>
-    </div>
-
-    <!-- Shakes & Falooda -->
-    <div class="menu-row cat-shakes">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Oreo / KitKat / Cadbury Shake</h5>
-        <span>ओरियो / किटकॅट / कॅडबरी मिल्कशेक</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹89</div>
-        <div class="price-tag">Thick Shake</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-shakes">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Badam / Mango / Pineapple Shake</h5>
-        <span>बदाम / मँगो / अननस मिल्कशेक</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹69</div>
-        <div class="price-tag">Classic</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-shakes">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Redstone Sp. Dry Fruit Falooda</h5>
-        <span>रेडस्टोन स्पेशल ड्राय फ्रूट फालूदा</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹89</div>
-        <div class="price-tag">Royal</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-shakes">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Rose / Kesar / Butterscotch Falooda</h5>
-        <span>रोज / केसर / बटरस्कॉटच फालूदा</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹69</div>
-        <div class="price-tag">Dessert</div>
-      </div>
-    </div>
-
-    <!-- Chinese & Rolls -->
-    <div class="menu-row cat-chinese">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Chicken Lollipop (Fry / Masala)</h5>
-        <span>चिकन लॉलीपॉप फ्राय / मसाला</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹90 / ₹150</div>
-        <div class="price-tag">Half / Full</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-chinese">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Chicken Hakka / Schezwan Noodles</h5>
-        <span>चिकन हक्का / शेझवान नूडल्स</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹90 / ₹140</div>
-        <div class="price-tag">Half / Full</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-chinese">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Veg Hakka / Schezwan Noodles</h5>
-        <span>व्हेज हक्का / शेझवान नूडल्स</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹80 / ₹120</div>
-        <div class="price-tag">Half / Full</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-chinese">
-      <div class="item-info">
-        <h5><span class="marker marker-nonveg"></span> Double Egg Chicken Roll</h5>
-        <span>डबल अंडा चिकन रोल</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹100</div>
-        <div class="price-tag">Roll</div>
-      </div>
-    </div>
-
-    <!-- South Indian -->
-    <div class="menu-row cat-south">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Masala Dosa / Mysore Masala Dosa</h5>
-        <span>मसाला डोसा / मैसूर मसाला डोसा</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹50 / ₹100</div>
-        <div class="price-tag">Tiffin</div>
-      </div>
-    </div>
-
-    <div class="menu-row cat-south">
-      <div class="item-info">
-        <h5><span class="marker marker-veg"></span> Onion / Tomato Uthappa</h5>
-        <span>कांदा उत्तप्पा / टोमॅटो उत्तप्पा</span>
-      </div>
-      <div class="item-pricing">
-        <div class="price-val">₹50</div>
-        <div class="price-tag">Tiffin</div>
-      </div>
-    </div>
-  </div>
+  <div class="menu-list" id="fullMenuList"></div>
 </div>
 
-<!-- Catering & Party Section -->
 <div class="section">
   <div class="catering-card">
     <span style="color:#fbbf24; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">Parties &amp; Bulk Orders</span>
     <h3 style="margin-top:6px;">Host Your Next Celebration at Redstone</h3>
     <p>Organizing a Birthday Party, Family Get-Together, or Corporate Gathering? We arrange dedicated seating, custom thali buffets, and hot takeaway parcels.</p>
-    <a href="https://wa.me/919049590042?text=Hi%20Hotel%20Redstone,%20I%20want%20to%20enquire%20about%20party%20catering%20or%20bulk%20booking" class="btn-primary">
+    <a href="https://wa.me/919049590042?text=Hi%20Redstone%20Family%20Restaurant,%20I%20want%20to%20enquire%20about%20party%20catering%20or%20bulk%20booking" class="btn-primary">
       <i class="fa-solid fa-cake-candles"></i> Book Party Package via WhatsApp
     </a>
   </div>
 </div>
 
-<!-- Features -->
 <div class="section">
   <h3 class="section-title">The Redstone Standard</h3>
   <p class="section-desc">Why Nashik food lovers recommend us.</p>
@@ -976,7 +556,6 @@
   </div>
 </div>
 
-<!-- Table Booking Form -->
 <div class="section">
   <h3 class="section-title">Table Reservation</h3>
   <p class="section-desc">Avoid wait times on weekends by booking ahead.</p>
@@ -1014,7 +593,6 @@
   </form>
 </div>
 
-<!-- FAQ Accordion -->
 <div class="section">
   <h3 class="section-title">Frequently Asked Questions</h3>
   <p class="section-desc">Quick answers for visiting guests.</p>
@@ -1025,7 +603,7 @@
       <i class="fa-solid fa-chevron-down"></i>
     </div>
     <div class="faq-answer">
-      Yes! Hotel Redstone serves delicious Non-Veg specialties (Chicken &amp; Mutton Thalis, Handi, Biryani, Tandoor) as well as Pure Veg meals (Paneer, Pav Bhaji, South Indian, Shakes) prepared with separate utensils.
+      Yes! Redstone Family Restaurant serves delicious Non-Veg specialties (Chicken &amp; Mutton Thalis, Handi, Biryani, Tandoor) as well as Pure Veg meals (Paneer, Pav Bhaji, South Indian, Shakes) prepared with separate utensils[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span).
     </div>
   </div>
 
@@ -1035,7 +613,7 @@
       <i class="fa-solid fa-chevron-down"></i>
     </div>
     <div class="faq-answer">
-      We are open every day from 11:00 AM in the morning until 11:30 PM at night for dine-in, takeaway, and parcel orders.
+      We are open every day from 7:00 AM in the morning until 11:00 PM at night for dine-in, takeaway, and parcel orders.
     </div>
   </div>
 
@@ -1060,7 +638,6 @@
   </div>
 </div>
 
-<!-- Map & Directions -->
 <div class="section">
   <h3 class="section-title">Location &amp; Directions</h3>
   <p class="section-desc">Narayan Bapu Nagar, Jail Road, Nashik, Maharashtra</p>
@@ -1077,64 +654,272 @@
   </a>
 </div>
 
-<!-- Footer -->
 <footer style="padding: 24px 16px; text-align: center; border-top: 1px solid #1f1f26; color: #71717a; font-size: 11px;">
-  <p style="color:#e4e4e7; font-size:13px; font-weight:700; margin-bottom:4px;">Hotel Redstone Food Corner</p>
+  <p style="color:#e4e4e7; font-size:13px; font-weight:700; margin-bottom:4px;">Redstone Family Restaurant</p>
   <p>Narayan Bapu Nagar, Jail Road, Nashik</p>
-  <p style="margin-top: 10px;">&copy; Hotel Redstone. All rights reserved.</p>
+  <p style="margin-top: 10px;">&copy; Redstone Family Restaurant. All rights reserved.</p>
 </footer>
 
-<!-- Floating Bottom Bar -->
 <div class="floating-bar">
   <a href="tel:+919049590042" class="f-call"><i class="fa-solid fa-phone"></i> Call Now</a>
-  <a href="https://wa.me/919049590042?text=Hi%20Redstone,%20I%20want%20to%20reserve%20a%20table" class="f-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+  <a href="https://wa.me/919049590042?text=Hi%20Redstone%20Family%20Restaurant,%20I%20want%20to%20reserve%20a%20table" class="f-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
 </div>
 
 <script>
-  // Filter Function
-  function filterMenuCategory(category, element) {
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    element.classList.add('active');
+  const REDSTONE_MENU = [
+    { n: "Redstone Sp. Mutton Thali", mr: "रेडस्टोन स्पे. मटण थाली (Mutton Curry, Fry, Pulav/Biryani, 2 Roti/1 Bhakri, Papad)", p: "₹390", tag: "Full Thali", c: "thali", v: false },
+    { n: "Redstone Sp. Chicken Thali", mr: "रेडस्टोन स्पे. चिकन थाली (Chicken Curry, Kheema, Fry Chicken, Egg, Pulav, 2 Roti/Bhakri)", p: "₹340", tag: "Full Thali", c: "thali", v: false },
+    { n: "Mutton Thali", mr: "मटण थाली (Mutton Curry, Plain Rice, 2 Roti / 1 Bhakari)", p: "₹220", tag: "Thali", c: "thali", v: false },
+    { n: "Chicken Thali", mr: "चिकन थाली (Chicken Curry, Plain Rice, 2 Roti / 1 Bhakari)", p: "₹220", tag: "Thali", c: "thali", v: false },
+    { n: "Redstone Sp. Veg Thali", mr: "रेडस्टोन स्पे. व्हेज थाली (2 Bhaji, Dal, Steam Rice, Papad, 2 Roti / 1 Bhakari, Sweet)", p: "₹230", tag: "Thali", c: "thali", v: true },
 
-    const rows = document.querySelectorAll('#fullMenuList .menu-row');
-    rows.forEach(row => {
-      if (category === 'all') {
-        row.style.display = 'flex';
-      } else if (row.classList.contains('cat-' + category)) {
-        row.style.display = 'flex';
-      } else {
-        row.style.display = 'none';
-      }
-    });
+    { n: "Tandoori Chicken", mr: "तंदूरी चिकन", p: "₹270 / ₹500", tag: "Half / Full", c: "tandoor", v: false },
+    { n: "Chicken Tikka", mr: "चिकन टिक्का", p: "₹240", tag: "Portion", c: "tandoor", v: false },
+    { n: "Pahadi Chicken Tikka", mr: "पहाडी चिकन टिक्का", p: "₹250", tag: "Portion", c: "tandoor", v: false },
+    { n: "Chicken Banjara Tikka", mr: "चिकन बंजारा टिक्का", p: "₹250", tag: "Portion", c: "tandoor", v: false },
+    { n: "Chicken Roll Tikka", mr: "चिकन रोल टिक्का", p: "₹280", tag: "Portion", c: "tandoor", v: false },
+    { n: "Chicken Malai Tikka", mr: "चिकन मलाय टिक्का", p: "₹270", tag: "Portion", c: "tandoor", v: false },
+    { n: "Chicken Tangdi Kebab", mr: "चिकन तंगडी कबाब", p: "₹260", tag: "Portion", c: "tandoor", v: false },
+    { n: "Tandoori Chicken Lollipop", mr: "तंदूरी चिकन लॉलीपॉप", p: "₹260", tag: "Portion", c: "tandoor", v: false },
+    { n: "Chicken Sukka", mr: "चिकन सुक्का", p: "₹180", tag: "Portion", c: "tandoor", v: false },
+    { n: "Mutton Sukka", mr: "मटण सुखा", p: "₹270", tag: "Portion", c: "tandoor", v: false },
+    { n: "Paneer Tikka", mr: "पनीर टिक्का", p: "₹220", tag: "Portion", c: "tandoor", v: true },
+    { n: "Paneer Malai Tikka", mr: "पनीर मलाई टिक्का", p: "₹220", tag: "Portion", c: "tandoor", v: true },
+    { n: "Paneer Banjara Tikka", mr: "पनीर बंजारा टिक्का", p: "₹220", tag: "Portion", c: "tandoor", v: true },
+    { n: "Paneer Pahadi Tikka", mr: "पनीर पहाडी टिक्का", p: "₹230", tag: "Portion", c: "tandoor", v: true },
+    { n: "Paneer Makhamali", mr: "पनीर मखमली", p: "₹240", tag: "Portion", c: "tandoor", v: true },
+    { n: "Veg Hara Bhara Kebab", mr: "व्हेज हराभरा कबाब", p: "₹180", tag: "Portion", c: "tandoor", v: true },
+    { n: "Chana Garlic Koliwada", mr: "चना गार्लिक कोलीवाडा", p: "₹140", tag: "Portion", c: "tandoor", v: true },
+    { n: "Green Salad", mr: "ग्रीन सलाड", p: "₹50", tag: "Plate", c: "tandoor", v: true },
+    { n: "Masala Papad", mr: "मसाला पापड", p: "₹35", tag: "Plate", c: "tandoor", v: true },
+    { n: "Roasted / Fry Udid Papad", mr: "रोस्टेड / फ्राय उडीद पापड", p: "₹15 / ₹19", tag: "Plate", c: "tandoor", v: true },
+
+    { n: "Surmai Fry (3 Pc) Tawa/Rawa", mr: "सुरमई फ्राय (३ नग) तवा / रवा", p: "₹330", tag: "Plate", c: "seafood", v: false },
+    { n: "Pomfret Fry (1 Pc) Tawa/Rawa", mr: "पॉम्प्लेट (१ नग) तवा / रवा", p: "₹330", tag: "Plate", c: "seafood", v: false },
+    { n: "Bangda Fry (2 Pc)", mr: "बांगडा फ्राय (२ नग)", p: "₹300", tag: "Plate", c: "seafood", v: false },
+    { n: "Tandoori Pomfret (1 Pc)", mr: "तंदुरी पॉम्प्लेट (१ नग)", p: "₹300", tag: "Plate", c: "seafood", v: false },
+    { n: "Prawns Koliwada / Tawa (8 Pc)", mr: "प्रॉन्स कोलीवडा / तवा (८ नग)", p: "₹300", tag: "Plate", c: "seafood", v: false },
+    { n: "Fish Tikka", mr: "फिश टिक्का", p: "₹350", tag: "Portion", c: "seafood", v: false },
+    { n: "Fish Curry", mr: "फिश करी", p: "₹250", tag: "Portion", c: "seafood", v: false },
+    { n: "Fish Masala", mr: "फिश मसाला", p: "₹270", tag: "Portion", c: "seafood", v: false },
+
+    { n: "Sp. Chicken Murg Musallam", mr: "चिकन मुर्ग मुसल्लम", p: "₹400 / ₹700", tag: "Half / Full", c: "nonveg_main", v: false },
+    { n: "Butter Chicken", mr: "बटर चिकन", p: "₹370 / ₹670", tag: "Half / Full", c: "nonveg_main", v: false },
+    { n: "Redstone Sp. Chicken Handi", mr: "रेडस्टोन स्पे. चिकन हंडी", p: "₹340 / ₹560", tag: "Half / Full", c: "nonveg_main", v: false },
+    { n: "Chicken Maratha", mr: "चिकन मराठा", p: "₹340 / ₹560", tag: "Half / Full", c: "nonveg_main", v: false },
+    { n: "Chicken Kadhai", mr: "चिकन कढई", p: "₹270", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Chicken Tikka Masala", mr: "चिकन टिक्का मसाला", p: "₹270", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Chicken Leg Masala", mr: "चिकन लेग मसाला", p: "₹270", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Chicken Kolhapuri", mr: "चिकन कोल्हापुरी", p: "₹260", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Chicken Angara", mr: "चिकन अंगारा", p: "₹270", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Chicken Hyderabadi", mr: "चिकन हैद्राबादी", p: "₹270", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Chicken Bhuna", mr: "चिकन भुना", p: "₹240", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Chicken Masala", mr: "चिकन मसाला", p: "₹220", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Chicken Kheema Masala", mr: "चिकन खिमा मसाला", p: "₹220", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Redstone Sp. Mutton Handi", mr: "रेडस्टोन स्पे. मटण हंडी", p: "₹430 / ₹760", tag: "Half / Full", c: "nonveg_main", v: false },
+    { n: "Mutton Maratha", mr: "मटण मराठा", p: "₹450 / ₹780", tag: "Half / Full", c: "nonveg_main", v: false },
+    { n: "Mutton Masala", mr: "मटण मसाला", p: "₹300", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Kadhai Mutton", mr: "कढई मटण", p: "₹310", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Mutton Bhuna", mr: "मटण भुना", p: "₹280", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Mutton Hyderabadi (Green)", mr: "मटण हैद्राबादी (ग्रीन)", p: "₹320", tag: "Portion", c: "nonveg_main", v: false },
+    { n: "Non-Veg Rassa Vati", mr: "रस्सा वाटी", p: "₹50", tag: "Bowl", c: "nonveg_main", v: false },
+    { n: "Sp. Egg Curry / Egg Masala", mr: "अंडा करी / अंडा मसाला", p: "₹120 / ₹130", tag: "Portion", c: "nonveg_main", v: false },
+
+    { n: "Redstone Special Veg", mr: "रेडस्टोन स्पे. व्हेज", p: "₹280", tag: "Signature", c: "veg_main", v: true },
+    { n: "Paneer Handi", mr: "पनीर हंडी", p: "₹340", tag: "Portion", c: "veg_main", v: true },
+    { n: "Paneer Butter Masala", mr: "पनीर बटर मसाला", p: "₹220", tag: "Portion", c: "veg_main", v: true },
+    { n: "Paneer Tikka Masala", mr: "पनीर टिक्का मसाला", p: "₹250", tag: "Portion", c: "veg_main", v: true },
+    { n: "Paneer Angara / Kohinoor", mr: "पनीर अंगारा / पनीर कोहिनूर", p: "₹260", tag: "Portion", c: "veg_main", v: true },
+    { n: "Paneer Lababdar", mr: "पनीर लबाबदार", p: "₹250", tag: "Portion", c: "veg_main", v: true },
+    { n: "Paneer Lachedar", mr: "पनीर लच्छेदार", p: "₹240", tag: "Portion", c: "veg_main", v: true },
+    { n: "Kaju Paneer Masala", mr: "काजू पनीर मसाला", p: "₹240", tag: "Portion", c: "veg_main", v: true },
+    { n: "Shahi Paneer", mr: "शाही पनीर", p: "₹240", tag: "Portion", c: "veg_main", v: true },
+    { n: "Palak Paneer Masala", mr: "पालक पनीर मसाला", p: "₹220", tag: "Portion", c: "veg_main", v: true },
+    { n: "Paneer Masala", mr: "पनीर मसाला", p: "₹200", tag: "Portion", c: "veg_main", v: true },
+    { n: "Kaju Curry / Kaju Masala", mr: "काजू करी / काजू मसाला", p: "₹240 / ₹230", tag: "Portion", c: "veg_main", v: true },
+    { n: "Sham Sabera", mr: "शाम सबेरा", p: "₹280", tag: "Special", c: "veg_main", v: true },
+    { n: "Shev Bhaji Kala Masala", mr: "शेव भाजी काळा मसाला", p: "₹130", tag: "Portion", c: "veg_main", v: true },
+    { n: "Shev Bhaji Lal Masala", mr: "शेव भाजी लाल मसाला", p: "₹120", tag: "Portion", c: "veg_main", v: true },
+    { n: "Dudh Shev Bhaji", mr: "दूध शेव भाजी", p: "₹160", tag: "Special", c: "veg_main", v: true },
+    { n: "Veg Tiranga", mr: "व्हेज तिरंगा", p: "₹400", tag: "Special", c: "veg_main", v: true },
+    { n: "Veg Maratha", mr: "व्हेज मराठा", p: "₹180", tag: "Portion", c: "veg_main", v: true },
+    { n: "Veg Angara / Patiala", mr: "व्हेज अंगारा / व्हेज पतियाळा", p: "₹220 / ₹230", tag: "Portion", c: "veg_main", v: true },
+    { n: "Veg Toofani / Hyderabadi / Kofta", mr: "व्हेज तुफानी / हैद्राबादी / कोफ्ता", p: "₹200", tag: "Portion", c: "veg_main", v: true },
+    { n: "Veg Kolhapuri", mr: "व्हेज कोल्हापुरी", p: "₹160", tag: "Portion", c: "veg_main", v: true },
+    { n: "Mix Veg", mr: "मिक्स व्हेज", p: "₹150", tag: "Portion", c: "veg_main", v: true },
+    { n: "Baingan Curry / Pithale", mr: "बैंगन करी / पिठले", p: "₹120 / ₹110", tag: "Portion", c: "veg_main", v: true },
+    { n: "Chana Masala", mr: "चना मसाला", p: "₹140", tag: "Portion", c: "veg_main", v: true },
+    { n: "Dal Tadka / Dal Fry", mr: "दाल तडका / दाळ फ्राय", p: "₹130 / ₹120", tag: "Portion", c: "veg_main", v: true },
+
+    { n: "Bhakari", mr: "भाकरी", p: "₹20", tag: "Per Pc", c: "roti_rice", v: true },
+    { n: "Tandoori Roti (Plain / Butter)", mr: "तंदुरी रोटी (प्लेन / बटर)", p: "₹15 / ₹20", tag: "Per Pc", c: "roti_rice", v: true },
+    { n: "Tandoori Naan (Plain / Butter)", mr: "तंदुरी नान (प्लेन / बटर)", p: "₹45 / ₹40", tag: "Per Pc", c: "roti_rice", v: true },
+    { n: "Lachha Paratha (Plain / Butter)", mr: "तंदुरी लच्छा पराठा", p: "₹40 / ₹35", tag: "Per Pc", c: "roti_rice", v: true },
+    { n: "Garlic Naan / Cheese Butter Naan", mr: "लसूण नान / चीज बटर नान", p: "₹60 / ₹70", tag: "Per Pc", c: "roti_rice", v: true },
+    { n: "Tandoori Kulcha", mr: "तंदुरी कुलचा", p: "₹40 / ₹45", tag: "Per Pc", c: "roti_rice", v: true },
+    { n: "Aloo / Gobi Paratha", mr: "आलू / गोबी पराठा", p: "₹60", tag: "Per Pc", c: "roti_rice", v: true },
+    { n: "Paneer Paratha / Mix Paratha", mr: "पनीर पराठा / मिक्स पराठा", p: "₹80 / ₹70", tag: "Per Pc", c: "roti_rice", v: true },
+    { n: "Roti Basket", mr: "रोटी बास्केट", p: "₹190", tag: "Basket", c: "roti_rice", v: true },
+    { n: "Chicken Dum Biryani", mr: "चिकन दम बिर्याणी", p: "₹200", tag: "Portion", c: "roti_rice", v: false },
+    { n: "Redstone Sp. Chicken Biryani", mr: "रेड स्टोन स्पे. चिकन बिर्याणी", p: "₹320", tag: "Special", c: "roti_rice", v: false },
+    { n: "Mutton Dum Biryani", mr: "मटण दम बिर्याणी", p: "₹290", tag: "Portion", c: "roti_rice", v: false },
+    { n: "Chicken Hyderabadi / Tikka Biryani", mr: "चिकन हैदराबादी / टिक्का बिरयाणी", p: "₹240 / ₹200", tag: "Portion", c: "roti_rice", v: false },
+    { n: "Egg Biryani", mr: "अंडी बिर्याणी", p: "₹150", tag: "Portion", c: "roti_rice", v: false },
+    { n: "Redstone Sp. Veg Biryani", mr: "रेड स्टोन स्पे. व्हेज बिर्याणी", p: "₹170", tag: "Portion", c: "roti_rice", v: true },
+    { n: "Paneer Biryani", mr: "पनीर बिर्याणी", p: "₹200", tag: "Portion", c: "roti_rice", v: true },
+    { n: "Jeera Rice", mr: "जिरा राईस", p: "₹80 / ₹120", tag: "Half / Full", c: "roti_rice", v: true },
+    { n: "Steam Rice", mr: "स्टीम राइस", p: "₹50 / ₹100", tag: "Half / Full", c: "roti_rice", v: true },
+    { n: "Masala Rice / Dal Khichada", mr: "मसाला राईस / दाल खिचडा", p: "₹140", tag: "Portion", c: "roti_rice", v: true },
+    { n: "Curd Rice", mr: "दही राईस", p: "₹100", tag: "Portion", c: "roti_rice", v: true },
+
+    { n: "Misal Pav", mr: "मिसळ पाव", p: "₹75", tag: "Plate", c: "breakfast", v: true },
+    { n: "Poha", mr: "पोहे", p: "₹35", tag: "Plate", c: "breakfast", v: true },
+    { n: "Idli (2 Pc)", mr: "इडली (२ नग)", p: "₹25", tag: "Plate", c: "breakfast", v: true },
+    { n: "Mendu Vada (2 Pc)", mr: "मेंदू वडा (२ नग)", p: "₹25", tag: "Plate", c: "breakfast", v: true },
+    { n: "Plain Dosa", mr: "डोसा", p: "₹35", tag: "Dosa", c: "breakfast", v: true },
+    { n: "Masala Dosa", mr: "मसाला डोसा", p: "₹55", tag: "Dosa", c: "breakfast", v: true },
+    { n: "Cheese Masala Dosa", mr: "चीज मसाला डोसा", p: "₹75", tag: "Dosa", c: "breakfast", v: true },
+    { n: "Onion / Tomato Uttapam", mr: "कांदा उत्तप्पा / टोमॅटो उत्तप्पा", p: "₹45", tag: "Uttapam", c: "breakfast", v: true },
+    { n: "Mix Uttapam", mr: "मिक्स उत्तप्पा", p: "₹50", tag: "Uttapam", c: "breakfast", v: true },
+
+    { n: "Butter Pav Bhaji", mr: "बटर पाव भाजी", p: "₹69", tag: "Plate", c: "pav_chaat", v: true },
+    { n: "Khada / Jain / Kolhapuri Pav Bhaji", mr: "खडा / जैन / कोल्हापुरी पाव भाजी", p: "₹79", tag: "Plate", c: "pav_chaat", v: true },
+    { n: "Paneer / Cheese Pav Bhaji", mr: "पनीर / चीज पाव भाजी", p: "₹99", tag: "Special", c: "pav_chaat", v: true },
+    { n: "Tawa Pulav", mr: "तवा पुलाव", p: "₹69 / ₹99", tag: "Half / Full", c: "pav_chaat", v: true },
+    { n: "Kolhapuri Pulav", mr: "कोल्हापुरी पुलाव", p: "₹79 / ₹109", tag: "Half / Full", c: "pav_chaat", v: true },
+    { n: "Masala Pav / Extra Pav", mr: "मसाला पाव / एक्सट्रा पाव", p: "₹19 / ₹5", tag: "Per Pc", c: "pav_chaat", v: true },
+    { n: "Pani Puri", mr: "पाणीपुरी", p: "₹25", tag: "Chaat", c: "pav_chaat", v: true },
+    { n: "Dabeli / Cheese Dabeli", mr: "दाबेली / चीज दाबेली", p: "₹29 / ₹39", tag: "Snack", c: "pav_chaat", v: true },
+    { n: "Shevpuri", mr: "शेवपुरी", p: "₹29", tag: "Chaat", c: "pav_chaat", v: true },
+    { n: "Dahipuri / Ragda Pattice / Bhel", mr: "दहीपुरी / रगडा पॅटिस / भेळ", p: "₹35", tag: "Chaat", c: "pav_chaat", v: true },
+    { n: "Tokri / Papdi / Shev Papdi Chaat", mr: "टोकरी चाट / पापडी चाट / शेव पापडी", p: "₹45", tag: "Chaat", c: "pav_chaat", v: true },
+    { n: "Samosa Chaat / Sadha Samosa", mr: "समोसा चाट / साधा समोसा", p: "₹35 / ₹18", tag: "Snack", c: "pav_chaat", v: true },
+    { n: "Kadhi Samosa / Kadhi Bhel", mr: "कढी समोसा / कढी भेळ", p: "₹25 / ₹30", tag: "Snack", c: "pav_chaat", v: true },
+
+    { n: "Redstone Special Pizza", mr: "रेडस्टोन स्पे. पिझ्झा", p: "₹169", tag: "Signature", c: "fastfood", v: true },
+    { n: "Tandoori Paneer Pizza", mr: "तंदूरी पनीर पिझ्झा", p: "₹179", tag: "Special", c: "fastfood", v: true },
+    { n: "Four Cheese / Barbeque Pizza", mr: "फोर चीज / बार्बेक्यू पिझ्झा", p: "₹149", tag: "Pizza", c: "fastfood", v: true },
+    { n: "Paneer / Schezwan Pizza", mr: "पनीर / शेजवान पिझ्झा", p: "₹129", tag: "Pizza", c: "fastfood", v: true },
+    { n: "Margherita / Golden Corn Pizza", mr: "मार्गेरिटा / गोल्डन कॉर्न पिझ्झा", p: "₹99", tag: "Pizza", c: "fastfood", v: true },
+    { n: "Chicken Basil Pizza", mr: "चिकन बेसील पिज्जा", p: "₹159", tag: "Pizza", c: "fastfood", v: false },
+    { n: "Chicken Burger / Chicken Cheese", mr: "चिकन बर्गर / चिकन चीज बर्गर", p: "₹109", tag: "Burger", c: "fastfood", v: false },
+    { n: "Paneer Burger / Paneer Cheese", mr: "पनीर बर्गर / पनीर चीज बर्गर", p: "₹89 / ₹109", tag: "Burger", c: "fastfood", v: true },
+    { n: "Aloo Tikki / Veg Patty Burger", mr: "आलू टिक्की / व्हेज पॅटी बर्गर", p: "₹59 / ₹69", tag: "Burger", c: "fastfood", v: true },
+    { n: "French Fries Plain / Peri Peri", mr: "फ्रेंच फ्राईज / पेरी पेरी फ्राईज", p: "₹79 / ₹89", tag: "Fries", c: "fastfood", v: true },
+    { n: "Masala Fries / Cheesy Fries", mr: "मसाला फ्राईज / चीज फ्राईज", p: "₹89 / ₹109", tag: "Fries", c: "fastfood", v: true },
+    { n: "Butter Masala / Cheese Maggie", mr: "बटर मसाला / चीज मॅगी", p: "₹59", tag: "Maggie", c: "fastfood", v: true },
+    { n: "Vegetable / Schezwan Maggie", mr: "व्हेजीटेबल / शेजवान मॅगी", p: "₹69 / ₹79", tag: "Maggie", c: "fastfood", v: true },
+    { n: "Egg Maggie", mr: "अंडा मॅगी", p: "₹79", tag: "Maggie", c: "fastfood", v: false },
+    { n: "Double Omelette / Double Egg Bhurji", mr: "डबल ऑम्लेट / डबल अंडा भुर्जी", p: "₹49 / ₹59", tag: "Snack", c: "fastfood", v: false },
+
+    { n: "Veg Steam / Fry Momos", mr: "व्हेज स्टीम / फ्राय मोमोज", p: "₹85 / ₹90", tag: "Momos", c: "momos_pasta", v: true },
+    { n: "Veg Tandoori Momos", mr: "व्हेज तंदुरी मोमोज", p: "₹120", tag: "Momos", c: "momos_pasta", v: true },
+    { n: "Paneer Steam / Fry Momos", mr: "पनीर स्टीम / फ्राय मोमोज", p: "₹95 / ₹100", tag: "Momos", c: "momos_pasta", v: true },
+    { n: "Paneer Tandoori Momos", mr: "पनीर तंदुरी मोमोज", p: "₹130", tag: "Momos", c: "momos_pasta", v: true },
+    { n: "Chicken Steam / Fry Momos", mr: "चिकन स्टीम / फ्राय मोमोज", p: "₹109 / ₹120", tag: "Momos", c: "momos_pasta", v: false },
+    { n: "Chicken Tandoori Momos", mr: "चिकन तंदुरी मोमोज", p: "₹130", tag: "Momos", c: "momos_pasta", v: false },
+    { n: "Aloo Roll / Manchurian Roll", mr: "आलू रोल / मंच्युरियन रोल", p: "₹29 / ₹49", tag: "Roll", c: "momos_pasta", v: true },
+    { n: "Paneer Roll / Cheese Roll", mr: "पनीर रोल / चीज रोल", p: "₹59", tag: "Roll", c: "momos_pasta", v: true },
+    { n: "Egg Roll / Double Egg Roll", mr: "अंडा रोल / डबल अंडा रोल", p: "₹39 / ₹49", tag: "Roll", c: "momos_pasta", v: false },
+    { n: "Chicken Roll / Chicken Kolhapuri Roll", mr: "चिकन रोल / चिकन कोल्हापुरी रोल", p: "₹59 / ₹69", tag: "Roll", c: "momos_pasta", v: false },
+    { n: "Double Egg Chicken Roll", mr: "डबल अंडा चिकन रोल", p: "₹89", tag: "Roll", c: "momos_pasta", v: false },
+    { n: "Veg Grill Sandwich / Cheese Grill", mr: "व्हेज ग्रिल / चीज ग्रिल सँडविच", p: "₹59 / ₹69", tag: "Sandwich", c: "momos_pasta", v: true },
+    { n: "Paneer Sandwich", mr: "पनीर सँडविच", p: "₹99", tag: "Sandwich", c: "momos_pasta", v: true },
+    { n: "Chicken Sandwich", mr: "चिकन सँडविच", p: "₹99", tag: "Sandwich", c: "momos_pasta", v: false },
+    { n: "Club Sandwich", mr: "क्लब सँडविच", p: "₹139", tag: "Sandwich", c: "momos_pasta", v: true },
+    { n: "Cheese Garlic Bread / Chilli Toast", mr: "चीझ गार्लिक ब्रेड / चीझ चिली टोस्ट", p: "₹120", tag: "Bites", c: "momos_pasta", v: true },
+    { n: "Bruschetta / Mexican Toast", mr: "ब्रशकेटा / मेक्सिकन टोस्ट", p: "₹140 / ₹150", tag: "Bites", c: "momos_pasta", v: true },
+    { n: "Red Sauce / White Sauce Pasta", mr: "रेड सॉस / व्हाईट सॉस पास्ता", p: "₹99 / ₹119", tag: "Pasta", c: "momos_pasta", v: true },
+    { n: "Redstone Special Pasta", mr: "रेडस्टोन स्पे. पास्ता", p: "₹149", tag: "Pasta", c: "momos_pasta", v: true },
+    { n: "Chicken Basil Pasta", mr: "चिकन बेसील पास्ता", p: "₹159", tag: "Pasta", c: "momos_pasta", v: false },
+    { n: "Tacos / Bens Cheese Nachos", mr: "टॅकोज / बेन चीज नाचोज", p: "₹139 / ₹109", tag: "Bites", c: "momos_pasta", v: true },
+
+    { n: "Veg Manchow / Schezwan Soup", mr: "व्हेज मंचाव / शेजवान सूप", p: "₹60 / ₹70", tag: "Soup", c: "chinese", v: true },
+    { n: "Chicken Manchow / Hot & Sour Soup", mr: "चिकन मंचाव / हॉट आणि सोर सूप", p: "₹70", tag: "Soup", c: "chinese", v: false },
+    { n: "Veg Manchurian Dry / Gravy", mr: "व्हेज मंचुरियन ड्राय / ग्रेव्ही", p: "₹80 / ₹120", tag: "Half / Full", c: "chinese", v: true },
+    { n: "Paneer Chilli Dry / Gravy", mr: "पनीर चिल्ली ड्राय / ग्रेव्ही", p: "₹100 / ₹150", tag: "Half / Full", c: "chinese", v: true },
+    { n: "Soyabean Chilli / Veg 65", mr: "सोयाबीन चिल्ली / व्हेज ६५", p: "₹80 / ₹120", tag: "Half / Full", c: "chinese", v: true },
+    { n: "Chicken Chilli Dry / Gravy", mr: "चिकन चिली ड्राय / ग्रेव्ही", p: "₹90 / ₹150", tag: "Half / Full", c: "chinese", v: false },
+    { n: "Chicken Manchurian Dry / Gravy", mr: "चिकन मंच्युरियन ड्राय / ग्रेव्ही", p: "₹90 / ₹150", tag: "Half / Full", c: "chinese", v: false },
+    { n: "Chicken 65 Dry / Gravy", mr: "चिकन ६५ ड्राय / ग्रेव्ही", p: "₹90 / ₹160", tag: "Half / Full", c: "chinese", v: false },
+    { n: "Chicken Lollipop Fry / Masala", mr: "चिकन लॉलीपॉप फ्राय / मसाला", p: "₹100 / ₹170", tag: "Half / Full", c: "chinese", v: false },
+    { n: "Veg Hakka / Schezwan Noodles", mr: "व्हेज हक्का / शेझवान नूडल्स", p: "₹80 / ₹120", tag: "Half / Full", c: "chinese", v: true },
+    { n: "Veg Triple Schezwan Noodles", mr: "व्हेज ट्रिपल शेझवान नूडल्स", p: "₹110 / ₹160", tag: "Half / Full", c: "chinese", v: true },
+    { n: "Chicken Hakka / Schezwan Noodles", mr: "चिकन हक्का / शेझवान नूडल्स", p: "₹90 / ₹140", tag: "Half / Full", c: "chinese", v: false },
+    { n: "Chicken Triple Noodles", mr: "चिकन ट्रिपल नूडल्स", p: "₹110 / ₹170", tag: "Half / Full", c: "chinese", v: false },
+    { n: "Veg Fried Rice / Schezwan Rice", mr: "व्हेज फ्राईड / शेजवान राईस", p: "₹80 / ₹120", tag: "Half / Full", c: "chinese", v: true },
+    { n: "Veg Triple Schezwan Rice", mr: "व्हेज ट्रिपल शेझवान राईस", p: "₹110 / ₹160", tag: "Half / Full", c: "chinese", v: true },
+    { n: "Chicken Fried Rice / Schezwan", mr: "चिकन फ्राईड / शेजवान राईस", p: "₹90 / ₹140", tag: "Half / Full", c: "chinese", v: false },
+    { n: "Chicken Triple Schezwan Rice", mr: "चिकन ट्रिपल शेझवान राईस", p: "₹110 / ₹170", tag: "Half / Full", c: "chinese", v: false },
+    { n: "Egg Fried Rice / Schezwan Rice", mr: "अंडा फ्राईड / शेझवान राईस", p: "₹90 / ₹130", tag: "Half / Full", c: "chinese", v: false },
+
+    { n: "Redstone Special Falooda", mr: "रेडस्टोन स्पेशल फालूदा", p: "₹59", tag: "Special", c: "desserts", v: true },
+    { n: "Dry Fruit Falooda", mr: "ड्राय फ्रूट फालूदा", p: "₹79", tag: "Royal", c: "desserts", v: true },
+    { n: "Rose / Butterscotch / Strawberry Falooda", mr: "रोज / बटरस्कॉटच / स्ट्रॉबेरी फालूदा", p: "₹59", tag: "Dessert", c: "desserts", v: true },
+    { n: "Oreo / KitKat / Cadbury Milkshake", mr: "ओरियो / किटकॅट / कॅडबरी मिल्कशेक", p: "₹79", tag: "Milkshake", c: "desserts", v: true },
+    { n: "Mango / Pineapple / Strawberry Milkshake", mr: "मँगो / अननस / स्ट्रॉबेरी मिल्कशेक", p: "₹59 / ₹69", tag: "Milkshake", c: "desserts", v: true },
+    { n: "Chocolate / Brownie Thick Shake", mr: "चॉकलेट / ब्राऊनी थिक शेक", p: "₹99 / ₹119", tag: "Thick Shake", c: "desserts", v: true },
+    { n: "Plain / Masala Chaas", mr: "प्लेन छास / मसाला छास", p: "₹25 / ₹30", tag: "Glass", c: "desserts", v: true },
+    { n: "Special Mix Lassi", mr: "स्पे. मिक्स लस्सी", p: "₹79", tag: "Glass", c: "desserts", v: true },
+    { n: "Plain / Mango / Kaju Lassi", mr: "प्लेन / मँगो / काजू लस्सी", p: "₹35 / ₹40 / ₹45", tag: "Glass", c: "desserts", v: true },
+    { n: "Cold Coffee / With Ice Cream", mr: "कोल्ड कॉफी / आईस्क्रीम विद", p: "₹60 / ₹69", tag: "Cold Coffee", c: "desserts", v: true },
+    { n: "Mint Mojito / Blue Sky Mojito", mr: "मिंट / ब्लू स्काय मोजितो", p: "₹69", tag: "Mocktail", c: "desserts", v: true },
+    { n: "Lemon Ice Tea", mr: "लेमन आईस टी", p: "₹59", tag: "Beverage", c: "desserts", v: true },
+    { n: "Tea / Black Tea", mr: "चहा / ब्लॅक टी", p: "₹10 / ₹15", tag: "Hot", c: "desserts", v: true },
+    { n: "Hot Coffee / Black Coffee", mr: "हॉट कॉफी / ब्लॅक कॉफी", p: "₹20", tag: "Hot", c: "desserts", v: true },
+    { n: "Vanilla / Chocolate Waffle", mr: "वॅनिला / चॉकलेट वॉफल", p: "₹59", tag: "Waffle", c: "desserts", v: true },
+    { n: "Redstone Spl Waffle", mr: "रेडस्टोन स्पे. वॉफल", p: "₹109", tag: "Waffle", c: "desserts", v: true },
+    { n: "Softy Cone Plain / Choco Chips", mr: "प्लेन वॅनिला / चॉको चिप्स कोन", p: "₹25 / ₹39", tag: "Softy", c: "desserts", v: true }
+  ];
+
+  let currentCategory = 'all';
+
+  function renderList(items) {
+    const list = document.getElementById('fullMenuList');
+    if (!list) return;
+    if (items.length === 0) {
+      list.innerHTML = '<div style="text-align:center; padding:30px 10px; color:#9ca3af; font-size:13px;">No dish found matching your search.</div>';
+      return;
+    }
+
+    list.innerHTML = items.map(item => `
+      <div class="menu-row">
+        <div class="item-info">
+          <h5><span class="marker ${item.v ? 'marker-veg' : 'marker-nonveg'}"></span> ${item.n}</h5>
+          <span>${item.mr}</span>
+        </div>
+        <div class="item-pricing">
+          <div class="price-val">${item.p}</div>
+          <div class="price-tag">${item.tag}</div>
+        </div>
+      </div>
+    `).join('');
   }
 
-  // Dish Search
-  function searchMenuItems() {
-    const query = document.getElementById('menuSearchInput').value.toLowerCase();
-    const rows = document.querySelectorAll('#fullMenuList .menu-row');
-
-    rows.forEach(row => {
-      const text = row.innerText.toLowerCase();
-      if (text.includes(query)) {
-        row.style.display = 'flex';
-      } else {
-        row.style.display = 'none';
-      }
-    });
+  function setCategory(cat, btn) {
+    currentCategory = cat;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterMenu();
   }
 
-  // Accordion Toggle
+  function filterMenu() {
+    const input = document.getElementById('menuSearchInput');
+    const query = input ? input.value.toLowerCase().trim() : '';
+    const filtered = REDSTONE_MENU.filter(item => {
+      const matchCat = (currentCategory === 'all' || item.c === currentCategory);
+      const matchQuery = item.n.toLowerCase().includes(query) || item.mr.toLowerCase().includes(query);
+      return matchCat && matchQuery;
+    });
+    renderList(filtered);
+  }
+
   function toggleFaq(el) {
     el.classList.toggle('active');
     const answer = el.nextElementSibling;
-    if (answer.style.display === 'block') {
-      answer.style.display = 'none';
-    } else {
-      answer.style.display = 'block';
-    }
+    answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
   }
 
-  // WhatsApp Lead Generation
   document.getElementById('resForm').addEventListener('submit', function(e) {
     e.preventDefault();
     var name = encodeURIComponent(document.getElementById('gname').value.trim());
@@ -1143,7 +928,7 @@
     var guests = encodeURIComponent(document.getElementById('gguests').value);
     var pref = encodeURIComponent(document.getElementById('gpref').value);
 
-    var msg = "Hi Hotel Redstone, I would like to book a table:%0A%0A" +
+    var msg = "Hi Redstone Family Restaurant, I would like to book a table:%0A%0A" +
               "👤 *Name:* " + name + "%0A" +
               "📞 *Phone:* " + phone + "%0A" +
               "📅 *Date:* " + date + "%0A" +
@@ -1151,6 +936,10 @@
               "📍 *Preference:* " + pref;
 
     window.open("https://wa.me/919049590042?text=" + msg, "_blank");
+  });
+
+  window.addEventListener('DOMContentLoaded', function() {
+    renderList(REDSTONE_MENU);
   });
 </script>
 
