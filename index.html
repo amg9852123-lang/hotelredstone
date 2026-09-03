@@ -34,34 +34,26 @@
     background: rgba(11, 11, 14, 0.96);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #1f1f26;
-    padding: 10px 14px;
+    padding: 10px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   .brand { display: flex; align-items: center; gap: 10px; }
-  
-  /* CROPPED LOGO CONTAINER: Zoomed in to remove white space */
+
+  /* Perfect Circular Badge */
   .brand-logo-wrap {
-    width: 65px;
-    height: 34px;
+    width: 44px;
+    height: 44px;
     background: #ffffff;
-    border-radius: 6px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    border: 1.5px solid #e52d3f;
-    position: relative;
+    border: 2px solid #e52d3f;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     flex-shrink: 0;
-  }
-  .brand-logo-wrap img {
-    position: absolute;
-    width: 280%;
-    max-width: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    overflow: hidden;
   }
 
   .brand-text h1 { font-size: 15px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; }
@@ -343,8 +335,22 @@
 
 <header>
   <div class="brand">
+    <!-- Perfect Circular Scaled Logo -->
     <div class="brand-logo-wrap">
-      <img src="https://i.ibb.co/PzfnwPTK/redstone-pdf-page-0001.jpg" alt="Redstone Logo">
+      <svg viewBox="0 0 320 80" width="34" height="17" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+        <text 
+          x="50%" 
+          y="56%" 
+          dominant-baseline="middle" 
+          text-anchor="middle" 
+          fill="#e52d3f" 
+          font-family="'Times New Roman', 'Georgia', serif" 
+          font-size="44" 
+          font-weight="900" 
+          letter-spacing="2">
+          REDSTONE
+        </text>
+      </svg>
     </div>
     <div class="brand-text">
       <h1>Redstone Family Restaurant</h1>
