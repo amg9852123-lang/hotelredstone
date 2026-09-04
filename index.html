@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redstone Family Restaurant | Veg &amp; Non-Veg Nashik</title>
+<title>Redstone Family Restaurant | Veg & Non-Veg Nashik</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,10 +41,11 @@
   }
   .brand { display: flex; align-items: center; gap: 10px; }
 
-  /* Perfect Circular Badge */
+  /* Circular Badge with Live Logo Image */
   .brand-logo-wrap {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
     background: #ffffff;
     border-radius: 50%;
     display: flex;
@@ -54,6 +55,12 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     flex-shrink: 0;
     overflow: hidden;
+  }
+  .brand-logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .brand-text h1 { font-size: 15px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; }
@@ -330,15 +337,13 @@
 <body>
 
 <div class="alert-bar">
-  🔥 Special Weekend Family Dining &amp; Banquet Party Packages Open
+  🔥 Special Weekend Family Dining & Banquet Party Packages Open
 </div>
 
 <header>
   <div class="brand">
-    <div style="width: 44px; height: 44px; min-width: 44px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #e52d3f; box-shadow: 0 2px 8px rgba(0,0,0,0.4); text-align: center; padding: 2px;">
-      <span style="font-family: 'Times New Roman', serif; font-weight: 900; font-size: 5.5px; letter-spacing: 0.5px; color: #e52d3f; display: block; line-height: 1;">
-        REDSTONE
-      </span>
+    <div class="brand-logo-wrap">
+      <img src="https://i.ibb.co/Dc6wTWh/redstone-pdf-page-0001-1.jpg" alt="Redstone Logo">
     </div>
     <div class="brand-text">
       <h1>Redstone Family Restaurant</h1>
@@ -350,12 +355,10 @@
   </a>
 </header>
 
-
-
 <div class="hero">
-  <div class="badge"><i class="fa-solid fa-utensils"></i> Veg &amp; Non-Veg Family Dining</div>
+  <div class="badge"><i class="fa-solid fa-utensils"></i> Veg & Non-Veg Family Dining</div>
   <h2>Nashik's Premier Food Destination</h2>
-  <p>Renowned for our Grand Mutton &amp; Chicken Thalis, Clay-Oven Tandoori Delights, Street-Style Pav Bhaji, and Fresh South Indian Delicacies.</p>
+  <p>Renowned for our Grand Mutton & Chicken Thalis, Clay-Oven Tandoori Delights, Street-Style Pav Bhaji, and Fresh South Indian Delicacies.</p>
   
   <div class="hero-cta">
     <a href="https://wa.me/919049590042?text=Hi%20Redstone,%20I%20want%20to%20reserve%20a%20table" class="btn-primary">
@@ -497,17 +500,17 @@
   <div class="tab-row" id="tabContainer">
     <button class="tab-btn active" onclick="setCategory('all', this)">All Items</button>
     <button class="tab-btn" onclick="setCategory('thali', this)">Grand Thalis</button>
-    <button class="tab-btn" onclick="setCategory('tandoor', this)">Tandoori &amp; Starters</button>
+    <button class="tab-btn" onclick="setCategory('tandoor', this)">Tandoori & Starters</button>
     <button class="tab-btn" onclick="setCategory('seafood', this)">Seafood</button>
-    <button class="tab-btn" onclick="setCategory('nonveg_main', this)">Chicken &amp; Mutton</button>
+    <button class="tab-btn" onclick="setCategory('nonveg_main', this)">Chicken & Mutton</button>
     <button class="tab-btn" onclick="setCategory('veg_main', this)">Veg Main Course</button>
-    <button class="tab-btn" onclick="setCategory('roti_rice', this)">Breads &amp; Biryani</button>
-    <button class="tab-btn" onclick="setCategory('breakfast', this)">Breakfast &amp; South Indian</button>
-    <button class="tab-btn" onclick="setCategory('pav_chaat', this)">Pav Bhaji &amp; Chaat</button>
-    <button class="tab-btn" onclick="setCategory('fastfood', this)">Pizzas &amp; Burgers</button>
-    <button class="tab-btn" onclick="setCategory('momos_pasta', this)">Momos, Rolls &amp; Pasta</button>
+    <button class="tab-btn" onclick="setCategory('roti_rice', this)">Breads & Biryani</button>
+    <button class="tab-btn" onclick="setCategory('breakfast', this)">Breakfast & South Indian</button>
+    <button class="tab-btn" onclick="setCategory('pav_chaat', this)">Pav Bhaji & Chaat</button>
+    <button class="tab-btn" onclick="setCategory('fastfood', this)">Pizzas & Burgers</button>
+    <button class="tab-btn" onclick="setCategory('momos_pasta', this)">Momos, Rolls & Pasta</button>
     <button class="tab-btn" onclick="setCategory('chinese', this)">Chinese</button>
-    <button class="tab-btn" onclick="setCategory('desserts', this)">Shakes, Waffles &amp; Tea</button>
+    <button class="tab-btn" onclick="setCategory('desserts', this)">Shakes, Waffles & Tea</button>
   </div>
 
   <div class="menu-list" id="fullMenuList"></div>
@@ -515,7 +518,7 @@
 
 <div class="section">
   <div class="catering-card">
-    <span style="color:#fbbf24; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">Parties &amp; Bulk Orders</span>
+    <span style="color:#fbbf24; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">Parties & Bulk Orders</span>
     <h3 style="margin-top:6px;">Host Your Next Celebration at Redstone</h3>
     <p>Organizing a Birthday Party, Family Get-Together, or Corporate Gathering? We arrange dedicated seating, custom thali buffets, and hot takeaway parcels.</p>
     <a href="https://wa.me/919049590042?text=Hi%20Redstone%20Family%20Restaurant,%20I%20want%20to%20enquire%20about%20party%20catering%20or%20bulk%20booking" class="btn-primary">
@@ -599,7 +602,7 @@
       <i class="fa-solid fa-chevron-down"></i>
     </div>
     <div class="faq-answer">
-      Yes! Redstone Family Restaurant serves delicious Non-Veg specialties (Chicken &amp; Mutton Thalis, Handi, Biryani, Tandoor) as well as Pure Veg meals (Paneer, Pav Bhaji, South Indian, Shakes) prepared with separate utensils[span_0](start_span)[span_0](end_span)[span_1](start_span)[span_1](end_span).
+      Yes! Redstone Family Restaurant serves delicious Non-Veg specialties (Chicken & Mutton Thalis, Handi, Biryani, Tandoor) as well as Pure Veg meals (Paneer, Pav Bhaji, South Indian, Shakes) prepared with separate utensils.
     </div>
   </div>
 
@@ -635,7 +638,7 @@
 </div>
 
 <div class="section">
-  <h3 class="section-title">Location &amp; Directions</h3>
+  <h3 class="section-title">Location & Directions</h3>
   <p class="section-desc">Narayan Bapu Nagar, Jail Road, Nashik, Maharashtra</p>
   
   <div style="border-radius:12px; overflow:hidden; border:1px solid #202028; margin-bottom:14px;">
@@ -653,7 +656,7 @@
 <footer style="padding: 24px 16px; text-align: center; border-top: 1px solid #1f1f26; color: #71717a; font-size: 11px;">
   <p style="color:#e4e4e7; font-size:13px; font-weight:700; margin-bottom:4px;">Redstone Family Restaurant</p>
   <p>Narayan Bapu Nagar, Jail Road, Nashik</p>
-  <p style="margin-top: 10px;">&copy; Redstone Family Restaurant. All rights reserved.</p>
+  <p style="margin-top: 10px;">© Redstone Family Restaurant. All rights reserved.</p>
 </footer>
 
 <div class="floating-bar">
